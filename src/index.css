@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    --background: 222 84% 4.9%;
+    --background: 0 0% 0%;
     --foreground: 210 40% 98%;
-    --card: 222 84% 4.9%;
+    --card: 0 0% 3%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 84% 4.9%;
+    --popover: 0 0% 3%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 189 100% 50%;
+    --primary-foreground: 0 0% 0%;
     --secondary: 217 32% 17%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217 32% 17%;
     --muted-foreground: 215 20% 65%;
-    --accent: 217 32% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 189 100% 50%;
+    --accent-foreground: 0 0% 0%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 32% 17%;
-    --input: 217 32% 17%;
-    --ring: 217 91% 60%;
+    --border: 189 50% 15%;
+    --input: 189 50% 15%;
+    --ring: 189 100% 50%;
     --radius: 0.5rem;
   }
 }
@@ -35,8 +35,9 @@
   }
   
   body {
-    @apply bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-foreground font-mono;
+    @apply bg-gradient-to-br from-black via-gray-900 to-black text-foreground font-mono;
     cursor: none;
+    overflow-x: hidden;
   }
   
   .font-display {
@@ -47,32 +48,56 @@
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00ffff, #0066ff);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00cccc, #0055cc);
+  }
 }
 
 @layer components {
   .glass {
     @apply bg-white/5 backdrop-blur-md border border-white/10;
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   }
   
   .glow {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.3),
+      0 0 40px rgba(0, 255, 255, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   }
   
-  .cursor-trail {
+  .ninja-trail {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(156, 163, 175, 0.8) 0%, transparent 70%);
-    border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     mix-blend-mode: screen;
   }
   
   .neural-bg {
-    background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.03) 49%, rgba(0, 255, 255, 0.03) 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(0, 102, 255, 0.03) 49%, rgba(0, 102, 255, 0.03) 51%, transparent 52%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px, 20px 20px;
   }
 }
 
@@ -83,17 +108,25 @@
 
 @keyframes blink {
   from, to { border-color: transparent }
-  50% { border-color: rgb(59, 130, 246) }
+  50% { border-color: rgb(0, 255, 255) }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) }
-  50% { transform: translateY(-20px) }
+  0%, 100% { transform: translateY(0px) rotate(0deg) }
+  50% { transform: translateY(-20px) rotate(5deg) }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3) }
-  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6) }
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.3),
+      0 0 40px rgba(0, 255, 255, 0.1);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(0, 255, 255, 0.6),
+      0 0 60px rgba(0, 255, 255, 0.2);
+  }
 }
 
 @keyframes rotate {
@@ -101,9 +134,24 @@
   to { transform: rotate(360deg) }
 }
 
+@keyframes ninja-slice {
+  0% { 
+    transform: scaleX(0) rotate(45deg);
+    opacity: 0;
+  }
+  50% { 
+    transform: scaleX(1) rotate(45deg);
+    opacity: 1;
+  }
+  100% { 
+    transform: scaleX(0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
 .typing-animation {
   overflow: hidden;
-  border-right: 3px solid rgb(59, 130, 246);
+  border-right: 3px solid rgb(0, 255, 255);
   white-space: nowrap;
   animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
 }
@@ -120,10 +168,14 @@
   animation: rotate 20s linear infinite;
 }
 
+.ninja-slice {
+  animation: ninja-slice 0.3s ease-out;
+}
+
 .stagger-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .stagger-in.animate {
@@ -134,7 +186,7 @@
 .slide-in-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: all 0.8s ease-out;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slide-in-left.animate {
@@ -145,10 +197,31 @@
 .slide-in-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: all 0.8s ease-out;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slide-in-right.animate {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Ninja theme enhancements */
+.blade-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.blade-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.blade-effect:hover::before {
+  left: 100%;
 }

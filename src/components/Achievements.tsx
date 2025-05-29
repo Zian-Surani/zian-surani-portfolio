@@ -1,0 +1,174 @@
+
+import { useEffect, useRef, useState } from 'react';
+import { Trophy, Medal, Star, Award, Crown, Target } from 'lucide-react';
+
+const Achievements = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const achievements = [
+    {
+      title: "Best Paper Award - ICRA 2021",
+      category: "Research Excellence",
+      description: "Recognized for groundbreaking research in autonomous robot navigation with 95% success rate in complex environments.",
+      date: "2021",
+      icon: Trophy,
+      color: "from-yellow-400 to-orange-500",
+      level: "International"
+    },
+    {
+      title: "Forbes 30 Under 30 - Technology",
+      category: "Industry Recognition",
+      description: "Selected for revolutionary AI applications in agriculture and contribution to sustainable farming solutions.",
+      date: "2023",
+      icon: Crown,
+      color: "from-purple-400 to-pink-500",
+      level: "Global"
+    },
+    {
+      title: "Global AgTech Innovation Award",
+      category: "Startup Achievement",
+      description: "Winner for Kisan Mithran's impact on agricultural productivity and farmer empowerment through AI technology.",
+      date: "2023",
+      icon: Award,
+      color: "from-green-400 to-emerald-500",
+      level: "International"
+    },
+    {
+      title: "NSF Graduate Research Fellowship",
+      category: "Academic Honor",
+      description: "Awarded prestigious fellowship for doctoral research in machine learning and computer vision applications.",
+      date: "2020",
+      icon: Medal,
+      color: "from-blue-400 to-indigo-500",
+      level: "National"
+    },
+    {
+      title: "TechCrunch Disrupt Startup Battlefield Winner",
+      category: "Entrepreneurship",
+      description: "First place winner for NeuralEdge Labs' revolutionary edge AI deployment platform.",
+      date: "2023",
+      icon: Target,
+      color: "from-cyan-400 to-blue-500",
+      level: "Industry"
+    },
+    {
+      title: "IEEE Outstanding Student Award",
+      category: "Academic Excellence",
+      description: "Highest academic achievement in computer science with focus on artificial intelligence and robotics.",
+      date: "2021",
+      icon: Star,
+      color: "from-orange-400 to-red-500",
+      level: "Professional"
+    }
+  ];
+
+  const stats = [
+    { label: "Papers Published", value: "15+", description: "Peer-reviewed publications" },
+    { label: "Citations", value: "500+", description: "Academic citations" },
+    { label: "Awards Won", value: "12", description: "International recognition" },
+    { label: "Patents Filed", value: "3", description: "AI/ML innovations" }
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="achievements" ref={sectionRef} className="py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Hall of Glory
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Trophies earned through relentless pursuit of excellence. Each achievement marks a milestone in the journey of innovation and digital mastery.
+          </p>
+        </div>
+
+        {/* Stats Overview */}
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 ${isVisible ? 'slide-in-left animate' : 'slide-in-left'}`}>
+          {stats.map((stat, index) => (
+            <div 
+              key={index}
+              className="glass p-6 rounded-xl text-center border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-500"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+                {stat.value}
+              </div>
+              <div className="text-white font-medium text-sm mb-1">{stat.label}</div>
+              <div className="text-gray-400 text-xs">{stat.description}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Achievements Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {achievements.map((achievement, index) => (
+            <div
+              key={index}
+              className={`glass p-6 rounded-2xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-500 group hover:scale-105 ${
+                isVisible ? 'stagger-in animate' : 'stagger-in'
+              }`}
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className={`w-12 h-12 bg-gradient-to-r ${achievement.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <achievement.icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-right">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${achievement.color} text-white`}>
+                    {achievement.level}
+                  </span>
+                  <div className="text-gray-400 text-sm mt-1">{achievement.date}</div>
+                </div>
+              </div>
+              
+              <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                {achievement.title}
+              </h3>
+              
+              <div className="text-cyan-400 text-sm font-medium mb-3">
+                {achievement.category}
+              </div>
+              
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {achievement.description}
+              </p>
+              
+              <div className="mt-4 pt-4 border-t border-gray-700">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-500 text-xs">Achievement Unlocked</span>
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className={`w-3 h-3 ${i < 4 ? 'text-yellow-400 fill-current' : 'text-gray-600'}`} 
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Achievements;

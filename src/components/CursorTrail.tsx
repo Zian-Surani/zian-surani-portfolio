@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react';
 
 const CursorTrail = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const trailRef = useRef<{ x: number; y: number; life: number }[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
+  const trailRef = useRef<{ x: number; y: number; life: number; angle: number }[]>([]);
+  const mouseRef = useRef({ x: 0, y: 0, prevX: 0, prevY: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -22,17 +22,29 @@ const CursorTrail = () => {
     window.addEventListener('resize', resizeCanvas);
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
+      const prevX = mouseRef.current.x;
+      const prevY = mouseRef.current.y;
       
-      // Add new trail point
+      mouseRef.current = { 
+        x: e.clientX, 
+        y: e.clientY,
+        prevX: prevX,
+        prevY: prevY
+      };
+      
+      // Calculate movement angle for blade direction
+      const angle = Math.atan2(e.clientY - prevY, e.clientX - prevX);
+      
+      // Add new trail point with blade properties
       trailRef.current.push({
         x: e.clientX,
         y: e.clientY,
-        life: 1
+        life: 1,
+        angle: angle
       });
 
-      // Limit trail length
-      if (trailRef.current.length > 20) {
+      // Limit trail length for performance
+      if (trailRef.current.length > 15) {
         trailRef.current.shift();
       }
     };
@@ -40,26 +52,38 @@ const CursorTrail = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw trail
+      // Update and draw ninja blade trail
       trailRef.current = trailRef.current.filter(point => {
-        point.life -= 0.05;
+        point.life -= 0.08;
         
         if (point.life > 0) {
-          const alpha = point.life * 0.5;
-          const size = point.life * 15;
+          const alpha = point.life * 0.8;
+          const bladeLength = point.life * 40;
+          const bladeWidth = point.life * 8;
           
-          const gradient = ctx.createRadialGradient(
-            point.x, point.y, 0,
-            point.x, point.y, size
-          );
+          ctx.save();
+          ctx.translate(point.x, point.y);
+          ctx.rotate(point.angle);
           
-          gradient.addColorStop(0, `rgba(156, 163, 175, ${alpha})`);
-          gradient.addColorStop(1, 'rgba(156, 163, 175, 0)');
+          // Create ninja blade gradient
+          const gradient = ctx.createLinearGradient(-bladeLength/2, 0, bladeLength/2, 0);
+          gradient.addColorStop(0, `rgba(0, 255, 255, 0)`);
+          gradient.addColorStop(0.3, `rgba(0, 255, 255, ${alpha * 0.8})`);
+          gradient.addColorStop(0.7, `rgba(255, 255, 255, ${alpha})`);
+          gradient.addColorStop(1, `rgba(0, 255, 255, 0)`);
           
+          // Draw blade shape
           ctx.fillStyle = gradient;
           ctx.beginPath();
-          ctx.arc(point.x, point.y, size, 0, Math.PI * 2);
+          ctx.ellipse(0, 0, bladeLength/2, bladeWidth/2, 0, 0, Math.PI * 2);
           ctx.fill();
+          
+          // Add blade edge glow
+          ctx.strokeStyle = `rgba(0, 255, 255, ${alpha * 0.6})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          
+          ctx.restore();
           
           return true;
         }
