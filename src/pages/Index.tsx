@@ -1,12 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import Navigation from '@/components/Navigation';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Research from '@/components/Research';
+import Projects from '@/components/Projects';
+import TechStack from '@/components/TechStack';
+import Contact from '@/components/Contact';
+import CursorTrail from '@/components/CursorTrail';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-x-hidden">
+      <CursorTrail />
+      <Navigation />
+      <Hero />
+      <About />
+      <Research />
+      <Projects />
+      <TechStack />
+      <Contact />
+      
+      {/* Footer */}
+      <footer className="py-8 px-6 border-t border-white/10 bg-slate-900/50">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-400">
+            © 2024 Zian Rajeshkumar Surani. Built with passion for AI and innovation.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
