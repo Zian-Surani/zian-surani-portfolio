@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,18 +35,19 @@
   }
   
   body {
-    @apply bg-gradient-to-br from-black via-gray-900 to-black text-foreground font-mono;
+    @apply bg-gradient-to-br from-black via-gray-900 to-black text-foreground;
     cursor: none;
     overflow-x: hidden;
+    font-family: 'Space Grotesk', sans-serif;
   }
   
   .font-display {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
   }
   
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace;
   }
 
   /* Custom scrollbar */
@@ -89,15 +90,55 @@
     z-index: 9999;
     mix-blend-mode: screen;
   }
-  
-  .neural-bg {
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
-      linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.03) 49%, rgba(0, 255, 255, 0.03) 51%, transparent 52%),
-      linear-gradient(-45deg, transparent 48%, rgba(0, 102, 255, 0.03) 49%, rgba(0, 102, 255, 0.03) 51%, transparent 52%);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+}
+
+/* Loading animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes loadingPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Floating circles animation */
+@keyframes floatCircle {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
   }
 }
 
@@ -149,75 +190,6 @@
   }
 }
 
-/* New flowing animations */
-@keyframes gridFlow {
-  0% { transform: translateX(0) translateY(0); }
-  50% { transform: translateX(-25px) translateY(-25px); }
-  100% { transform: translateX(0) translateY(0); }
-}
-
-@keyframes flowStream {
-  0% { 
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  50% { 
-    opacity: 1;
-  }
-  100% { 
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-@keyframes flowVertical {
-  0% { 
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  50% { 
-    opacity: 1;
-  }
-  100% { 
-    transform: translateY(100%);
-    opacity: 0;
-  }
-}
-
-@keyframes particleFlow {
-  0% { 
-    transform: translateX(-20px) translateY(0) scale(0);
-    opacity: 0;
-  }
-  10% { 
-    opacity: 1;
-    transform: translateX(0) translateY(0) scale(1);
-  }
-  90% { 
-    opacity: 1;
-    transform: translateX(100vw) translateY(-50px) scale(1);
-  }
-  100% { 
-    transform: translateX(calc(100vw + 20px)) translateY(-100px) scale(0);
-    opacity: 0;
-  }
-}
-
-@keyframes pathFlow {
-  0% { 
-    stroke-dasharray: 0 1000;
-    opacity: 0;
-  }
-  50% { 
-    stroke-dasharray: 200 1000;
-    opacity: 1;
-  }
-  100% { 
-    stroke-dasharray: 0 1000;
-    opacity: 0;
-  }
-}
-
 .typing-animation {
   overflow: hidden;
   border-right: 3px solid rgb(0, 255, 255);
@@ -239,6 +211,22 @@
 
 .ninja-slice {
   animation: ninja-slice 0.3s ease-out;
+}
+
+.loading-word {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.loading-fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+.loading-pulse {
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+.floating-circle {
+  animation: floatCircle linear infinite;
 }
 
 .stagger-in {

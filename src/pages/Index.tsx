@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -10,10 +11,18 @@ import Achievements from '@/components/Achievements';
 import TechStack from '@/components/TechStack';
 import Contact from '@/components/Contact';
 import CursorTrail from '@/components/CursorTrail';
+import LoadingScreen from '@/components/LoadingScreen';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-x-hidden">
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <CursorTrail />
       <Navigation />
       <Hero />
