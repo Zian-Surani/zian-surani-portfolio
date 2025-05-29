@@ -12,6 +12,7 @@ import TechStack from '@/components/TechStack';
 import Contact from '@/components/Contact';
 import CursorTrail from '@/components/CursorTrail';
 import LoadingScreen from '@/components/LoadingScreen';
+import AIChat from '@/components/AIChat';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +35,7 @@ const Index = () => {
       <Achievements />
       <TechStack />
       <Contact />
+      <AIChat />
       
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-cyan-500/20 bg-black/60">

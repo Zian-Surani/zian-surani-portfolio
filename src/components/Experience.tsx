@@ -1,13 +1,16 @@
 
 import { useEffect, useRef, useState } from 'react';
-import { Calendar, MapPin, TrendingUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Calendar, MapPin, TrendingUp, ExternalLink } from 'lucide-react';
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const experiences = [
     {
+      id: 'ai-research-scientist',
       title: "AI Research Scientist",
       company: "TechVanguard Labs",
       period: "2023 - Present",
@@ -23,6 +26,7 @@ const Experience = () => {
       color: "from-cyan-400 to-blue-500"
     },
     {
+      id: 'founder-cto',
       title: "Founder & CTO",
       company: "Kisan Mithran",
       period: "2022 - Present",
@@ -86,6 +90,10 @@ const Experience = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleExperienceClick = (id: string) => {
+    navigate(`/experience/${id}`);
+  };
+
   return (
     <section id="experience" ref={sectionRef} className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -106,16 +114,17 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative flex items-start ${
+                className={`relative flex items-start cursor-pointer ${
                   isVisible ? 'slide-in-right animate' : 'slide-in-right'
                 }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
+                onClick={() => handleExperienceClick(exp.id)}
               >
                 {/* Timeline dot */}
                 <div className={`absolute left-6 w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black z-10`} />
                 
                 {/* Experience card */}
-                <div className="ml-20 glass p-8 rounded-2xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-500 w-full group">
+                <div className="ml-20 glass p-8 rounded-2xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-500 w-full group hover:scale-105">
                   <div className="flex flex-wrap items-start justify-between mb-4">
                     <div>
                       <h3 className="font-display text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
@@ -146,7 +155,7 @@ const Experience = () => {
                       Key Achievements
                     </h5>
                     <ul className="space-y-2">
-                      {exp.achievements.map((achievement, achIndex) => (
+                      {exp.achievements.slice(0, 2).map((achievement, achIndex) => (
                         <li key={achIndex} className="text-gray-400 text-sm flex items-start">
                           <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0" />
                           {achievement}
@@ -155,10 +164,9 @@ const Experience = () => {
                     </ul>
                   </div>
                   
-                  <div>
-                    <h5 className="text-white font-semibold mb-3">Technologies Used</h5>
+                  <div className="flex items-center justify-between">
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIndex) => (
+                      {exp.technologies.slice(0, 3).map((tech, techIndex) => (
                         <span 
                           key={techIndex}
                           className="glass px-3 py-1 rounded-full text-xs text-cyan-400 border border-cyan-500/30"
@@ -166,6 +174,13 @@ const Experience = () => {
                           {tech}
                         </span>
                       ))}
+                      {exp.technologies.length > 3 && (
+                        <span className="text-xs text-gray-500">+{exp.technologies.length - 3} more</span>
+                      )}
+                    </div>
+                    <div className="flex items-center space-x-2 text-cyan-400 group-hover:text-blue-400 transition-colors">
+                      <ExternalLink className="w-4 h-4" />
+                      <span className="text-sm font-medium">View Details</span>
                     </div>
                   </div>
                 </div>
