@@ -26,7 +26,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Neon Grid Background */}
+      {/* Flowing Neon Grid Background */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
           backgroundImage: `
@@ -34,13 +34,14 @@ const Hero = () => {
             linear-gradient(90deg, cyan 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px',
-          opacity: 0.1
+          opacity: 0.1,
+          animation: 'gridFlow 20s linear infinite'
         }} />
       </div>
 
-      {/* Animated Circuit Lines */}
+      {/* Flowing Energy Streams */}
       <div className="absolute inset-0">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
             className="absolute h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-40"
@@ -49,11 +50,11 @@ const Hero = () => {
               left: '0%',
               right: '0%',
               animationDelay: `${i * 0.5}s`,
-              animation: 'pulse 4s ease-in-out infinite'
+              animation: `flowStream ${4 + Math.random() * 2}s ease-in-out infinite`
             }}
           />
         ))}
-        {[...Array(6)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
             className="absolute w-px bg-gradient-to-b from-transparent via-blue-400 to-transparent opacity-30"
@@ -62,26 +63,53 @@ const Hero = () => {
               top: '0%',
               bottom: '0%',
               animationDelay: `${i * 0.7}s`,
-              animation: 'pulse 3s ease-in-out infinite'
+              animation: `flowVertical ${3 + Math.random() * 2}s ease-in-out infinite`
             }}
           />
         ))}
       </div>
 
-      {/* Floating Energy Orbs */}
+      {/* Flowing Particle Waves */}
       <div className="absolute inset-0">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-cyan-400 rounded-full opacity-60 animate-pulse"
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              boxShadow: '0 0 20px cyan'
+              animationDelay: `${Math.random() * 5}s`,
+              animation: `particleFlow ${8 + Math.random() * 4}s linear infinite`,
+              boxShadow: '0 0 10px cyan'
             }}
           />
         ))}
+      </div>
+
+      {/* Flowing Neural Network Lines */}
+      <div className="absolute inset-0">
+        <svg className="w-full h-full opacity-20" viewBox="0 0 1200 800">
+          {[...Array(15)].map((_, i) => (
+            <path
+              key={i}
+              d={`M${Math.random() * 1200},${Math.random() * 800} Q${Math.random() * 1200},${Math.random() * 800} ${Math.random() * 1200},${Math.random() * 800}`}
+              stroke="url(#flowGradient)"
+              strokeWidth="1"
+              fill="none"
+              style={{
+                animation: `pathFlow ${6 + Math.random() * 4}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 3}s`
+              }}
+            />
+          ))}
+          <defs>
+            <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(0, 255, 255, 0)" />
+              <stop offset="50%" stopColor="rgba(0, 255, 255, 0.8)" />
+              <stop offset="100%" stopColor="rgba(0, 102, 255, 0)" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
       {/* Main Content */}
