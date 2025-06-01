@@ -6,7 +6,23 @@ const ExperienceDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const experiences = {
+  interface ExperienceType {
+    title: string;
+    company: string;
+    period: string;
+    location: string;
+    type: string;
+    color: string;
+    description: string;
+    detailedDescription: string;
+    responsibilities: string[];
+    achievements: string[];
+    technologies: string[];
+    publications?: string[];
+    impact?: string[];
+  }
+
+  const experiences: Record<string, ExperienceType> = {
     'ai-research-scientist': {
       title: "AI Research Scientist",
       company: "TechVanguard Labs",
@@ -77,7 +93,6 @@ const ExperienceDetail = () => {
         "$2M+ additional income generated for farmers"
       ]
     }
-    // Add more experiences here...
   };
 
   const experience = experiences[id as keyof typeof experiences];
@@ -195,7 +210,7 @@ const ExperienceDetail = () => {
               </div>
             </div>
 
-            {/* Publications/Impact */}
+            {/* Publications */}
             {experience.publications && (
               <div className="glass p-6 rounded-2xl">
                 <h3 className="text-xl font-bold text-white mb-4">Key Publications</h3>
@@ -210,6 +225,7 @@ const ExperienceDetail = () => {
               </div>
             )}
 
+            {/* Impact */}
             {experience.impact && (
               <div className="glass p-6 rounded-2xl">
                 <h3 className="text-xl font-bold text-white mb-4">Impact & Results</h3>

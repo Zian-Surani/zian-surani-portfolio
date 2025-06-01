@@ -13,6 +13,7 @@ import Contact from '@/components/Contact';
 import CursorTrail from '@/components/CursorTrail';
 import LoadingScreen from '@/components/LoadingScreen';
 import AIChat from '@/components/AIChat';
+import MathFormulasBackground from '@/components/MathFormulasBackground';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +25,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-x-hidden">
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      <MathFormulasBackground />
       <CursorTrail />
       <Navigation />
       <Hero />
@@ -38,7 +40,7 @@ const Index = () => {
       <AIChat />
       
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-cyan-500/20 bg-black/60">
+      <footer className="py-12 px-6 border-t border-cyan-500/20 bg-black/60 relative z-10">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-6">
             <div className="font-display text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
