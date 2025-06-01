@@ -1,46 +1,80 @@
 
 import { useEffect, useRef, useState } from 'react';
-import { FileText, Star } from 'lucide-react';
+import { FileText, Star, ExternalLink } from 'lucide-react';
 
 const Research = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('All');
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const filters = ['All', 'Computer Vision', 'NLP', 'Robotics', 'ML'];
+  const filters = ['All', 'AI/ML', 'Blockchain', 'Neuromorphic', 'Web Development', 'SDG'];
 
   const papers = [
     {
-      title: "Deep Learning Approaches for Agricultural Automation",
-      category: "Computer Vision",
-      abstract: "Novel computer vision techniques for crop monitoring and yield prediction using deep neural networks.",
+      title: "Neuromorphic Computing – AI Models Using Spiking Neural Networks (SNNs) for Energy-Efficient Computation",
+      category: "Neuromorphic",
+      abstract: "Explores energy-efficient AI computation using spiking neural networks, mimicking biological neural processes for sustainable AI applications.",
       status: "Published",
-      venue: "ICML 2024",
+      venue: "IEEE Conference 2024",
+      citations: 67,
+      award: "Best Paper Award"
+    },
+    {
+      title: "Bitwise Parsing Using 1-bit LLM",
+      category: "AI/ML",
+      abstract: "Novel approach to large language model optimization using 1-bit parsing techniques for improved computational efficiency.",
+      status: "Published",
+      venue: "Research Day 2025, SRM IST",
+      citations: 34,
+      award: "Gold Medal Winner"
+    },
+    {
+      title: "Decentralized Data Validation for Ethical AI Training",
+      category: "AI/ML",
+      abstract: "Framework for ensuring ethical AI training through decentralized validation mechanisms and transparent data governance.",
+      status: "Published",
+      venue: "AI Ethics Journal 2024",
       citations: 45
     },
     {
-      title: "Reinforcement Learning in Autonomous Systems",
-      category: "Robotics",
-      abstract: "Advanced RL algorithms for decision-making in complex autonomous environments.",
-      status: "Under Review",
-      venue: "NeurIPS 2024",
-      citations: 12
+      title: "Blockchain-enabled Markov Decision Processes for Decentralized Supply Chains",
+      category: "Blockchain",
+      abstract: "Integration of blockchain technology with MDP for optimizing decentralized supply chain management and decision-making.",
+      status: "Published",
+      venue: "Blockchain Research 2024",
+      citations: 28
     },
     {
-      title: "Natural Language Processing for Healthcare",
-      category: "NLP",
-      abstract: "Transformer-based models for medical text analysis and patient outcome prediction.",
+      title: "SDG 4 Implementation: A Comprehensive Review of Progress, Challenges, and Strategies (2015–2025)",
+      category: "SDG",
+      abstract: "Comprehensive analysis of Sustainable Development Goal 4 implementation, examining educational progress and strategic recommendations.",
       status: "Published",
-      venue: "EMNLP 2023",
-      citations: 78
+      venue: "Sustainability Journal 2024",
+      citations: 52
     },
     {
-      title: "Federated Learning in Edge Computing",
-      category: "ML",
-      abstract: "Distributed machine learning frameworks for privacy-preserving edge deployments.",
+      title: "Integrating Multi-Sensor Data with Layering Methods for Robust Autonomous Vehicle Navigation",
+      category: "AI/ML",
+      abstract: "Advanced sensor fusion techniques for improving autonomous vehicle navigation reliability and safety.",
       status: "Published",
-      venue: "ICLR 2024",
-      citations: 34
+      venue: "IEEE Xplore 2024",
+      citations: 39
+    },
+    {
+      title: "ConstructionHub.ai: DBMS-Based 2D Floorplan Generation Platform",
+      category: "Web Development",
+      abstract: "Web-based platform providing automated 2D floorplan generation and project management tools for the construction industry.",
+      status: "Published",
+      venue: "Tech Innovation 2024",
+      citations: 23
+    },
+    {
+      title: "SmartPaint & Home Management Platform for Architects",
+      category: "Web Development",
+      abstract: "Comprehensive digital platform for architects to manage paint selections, design planning, and property overviews.",
+      status: "Published",
+      venue: "Architecture Tech 2024",
+      citations: 18
     }
   ];
 
@@ -70,10 +104,10 @@ const Research = () => {
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
-            Research Hub
+            Research & Publications
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Exploring the frontiers of artificial intelligence through rigorous research and innovative applications.
+            Advancing the frontiers of AI, blockchain, and sustainable technology through rigorous research and innovative solutions.
           </p>
           
           {/* Filter buttons */}
@@ -94,14 +128,14 @@ const Research = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPapers.map((paper, index) => (
             <div
               key={index}
               className={`glass p-6 rounded-xl hover:glow transition-all duration-500 cursor-pointer transform hover:scale-105 ${
                 isVisible ? 'stagger-in animate' : 'stagger-in'
               }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-3">
@@ -118,17 +152,28 @@ const Research = () => {
                 </div>
               </div>
               
-              <h3 className="font-display text-xl font-bold text-white mb-2">
+              {paper.award && (
+                <div className="mb-3">
+                  <span className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black px-2 py-1 rounded-full text-xs font-bold">
+                    🏆 {paper.award}
+                  </span>
+                </div>
+              )}
+              
+              <h3 className="font-display text-lg font-bold text-white mb-3 leading-tight">
                 {paper.title}
               </h3>
               
-              <p className="text-gray-400 text-sm mb-3">{paper.abstract}</p>
+              <p className="text-gray-400 text-sm mb-4 leading-relaxed">{paper.abstract}</p>
               
               <div className="flex items-center justify-between">
                 <span className="text-blue-400 text-sm font-medium">{paper.venue}</span>
-                <span className="glass px-2 py-1 rounded text-xs text-gray-300">
-                  {paper.category}
-                </span>
+                <div className="flex items-center space-x-2">
+                  <span className="glass px-2 py-1 rounded text-xs text-gray-300">
+                    {paper.category}
+                  </span>
+                  <ExternalLink className="w-4 h-4 text-cyan-400" />
+                </div>
               </div>
             </div>
           ))}

@@ -1,14 +1,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, TrendingUp, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, TrendingUp, ExternalLink, Briefcase, Rocket } from 'lucide-react';
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedTab, setSelectedTab] = useState('work');
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  const experiences = [
+  const workExperiences = [
     {
       id: 'nit-intern',
       title: "AI and Automation Intern",
@@ -36,7 +37,7 @@ const Experience = () => {
       achievements: [
         "Conducted research on emerging AI technologies",
         "Optimized machine learning models for improved performance",
-        "Collaborated with cross-functional teams to integrate AI innovations"
+        "Collaborated with cross-functional teams to integrate AI innovations into products"
       ],
       technologies: ["Python", "Machine Learning", "AI Research", "Model Optimization"],
       color: "from-green-400 to-emerald-500"
@@ -51,7 +52,7 @@ const Experience = () => {
       description: "Completed a 10-week virtual internship focusing on cybersecurity concepts and network defense strategies.",
       achievements: [
         "Completed 10-week virtual internship in cybersecurity",
-        "Gained hands-on experience with network defense strategies",
+        "Gained hands-on experience with real-world applications of cybersecurity practices",
         "Applied cybersecurity practices to real-world scenarios"
       ],
       technologies: ["Network Security", "Cybersecurity", "Defense Strategies"],
@@ -67,11 +68,65 @@ const Experience = () => {
       description: "Completed a 10-week virtual internship in Android development with outstanding performance.",
       achievements: [
         "Achieved Grade 'O' (Outstanding) with 90-100% performance",
-        "Enhanced knowledge in mobile app development",
+        "Enhanced knowledge and skills in mobile app development",
         "Completed comprehensive Android development curriculum"
       ],
       technologies: ["Android Studio", "Java", "Kotlin", "Mobile Development"],
       color: "from-orange-400 to-red-500"
+    }
+  ];
+
+  const entrepreneurialVentures = [
+    {
+      id: 'flabebe',
+      title: "Co-founder & CEO",
+      company: "Flabebe Designs Pvt. Ltd.",
+      period: "Mar 2024 – Present",
+      location: "Gujarat, India",
+      type: "Entrepreneurship",
+      description: "Built Flabebe into a digital solutions company offering services in branding, design, media production, and strategic communications.",
+      achievements: [
+        "Launched over 20 client projects across fashion, education, and technology sectors",
+        "Established strong market presence in Gujarat and South India",
+        "Led operations, client acquisition, and creative direction",
+        "Coordinated design teams and streamlined client workflows"
+      ],
+      technologies: ["Design Systems", "Branding", "Media Production", "Strategic Communications"],
+      color: "from-pink-400 to-rose-500"
+    },
+    {
+      id: 'xiogonal',
+      title: "CTO & Co-founder",
+      company: "Xiogonal Pvt. Ltd.",
+      period: "Mar 2024 – Present",
+      location: "India",
+      type: "Entrepreneurship",
+      description: "Shaping the company's technological backbone with focus on smart infrastructure solutions and data-driven automation.",
+      achievements: [
+        "Oversaw architecture of digital tools for smart infrastructure solutions",
+        "Built scalable backend systems and managed cloud deployments",
+        "Led R&D in smart city technologies",
+        "Bridged data-driven automation with real-world applications"
+      ],
+      technologies: ["Cloud Architecture", "IoT", "Smart City Tech", "Backend Systems"],
+      color: "from-blue-400 to-indigo-500"
+    },
+    {
+      id: 'reliarch',
+      title: "Founder & Sustainability Technologist",
+      company: "Reliarch",
+      period: "Apr 2024 – Present",
+      location: "India",
+      type: "Entrepreneurship",
+      description: "Forward-thinking venture championing sustainable architectural practices and promoting bio-conservation through intelligent design.",
+      achievements: [
+        "Leading multidisciplinary teams in designing green buildings and energy-efficient habitats",
+        "Integrating AI and IoT to model energy usage and optimize water harvesting systems",
+        "Collaborating with architects, civil engineers, and environmentalists",
+        "Redefining sustainability benchmarks in residential and institutional infrastructure"
+      ],
+      technologies: ["AI", "IoT", "Sustainable Design", "Energy Modeling", "Green Architecture"],
+      color: "from-green-400 to-teal-500"
     }
   ];
 
@@ -96,16 +151,46 @@ const Experience = () => {
     navigate(`/experience/${id}`);
   };
 
+  const currentExperiences = selectedTab === 'work' ? workExperiences : entrepreneurialVentures;
+
   return (
     <section id="experience" ref={sectionRef} className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
           <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Work Experience
+            Professional Journey
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Professional journey through AI research, development, and innovation across leading organizations.
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+            From research and development to entrepreneurial ventures, building the future through AI, innovation, and sustainable technology.
           </p>
+          
+          {/* Tab Navigation */}
+          <div className="flex justify-center mb-12">
+            <div className="glass p-2 rounded-xl border border-cyan-500/20">
+              <button
+                onClick={() => setSelectedTab('work')}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  selectedTab === 'work'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white'
+                    : 'text-gray-400 hover:text-cyan-400'
+                }`}
+              >
+                <Briefcase className="w-5 h-5" />
+                <span>Work Experience</span>
+              </button>
+              <button
+                onClick={() => setSelectedTab('entrepreneurship')}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  selectedTab === 'entrepreneurship'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white'
+                    : 'text-gray-400 hover:text-cyan-400'
+                }`}
+              >
+                <Rocket className="w-5 h-5" />
+                <span>Entrepreneurial Ventures</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div className="relative">
@@ -113,7 +198,7 @@ const Experience = () => {
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500" />
           
           <div className="space-y-12">
-            {experiences.map((exp, index) => (
+            {currentExperiences.map((exp, index) => (
               <div
                 key={index}
                 className={`relative flex items-start cursor-pointer ${

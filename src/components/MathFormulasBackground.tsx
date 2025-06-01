@@ -10,6 +10,7 @@ const MathFormulasBackground = () => {
     rotation: number;
     opacity: number;
     fontSize: number;
+    color: string;
   }>>([]);
 
   const mathFormulas = [
@@ -37,12 +38,10 @@ const MathFormulasBackground = () => {
     '∂²f/∂x∂y = ∂²f/∂y∂x',
     'lim(x→∞) f(x) = L',
     'rank(AB) ≤ min(rank(A), rank(B))',
-    'F = ma',
-    'E = mc²',
+    'F⃗ = q(E⃗ + v⃗ × B⃗)',
     'ψ(x,t) = Ae^(i(kx-ωt))',
     'S = k log W',
     'dS ≥ 0',
-    'F⃗ = q(E⃗ + v⃗ × B⃗)',
     'G = H - TS',
     'PV = nRT',
     'ΔG = ΔH - TΔS',
@@ -61,7 +60,39 @@ const MathFormulasBackground = () => {
     'T = 2π√(l/g)',
     'f = 1/2π√(k/m)',
     'Q = mcΔT',
-    'η = W/Qh'
+    'η = W/Qh',
+    'y = mx + c',
+    'ax² + bx + c = 0',
+    'sin²θ + cos²θ = 1',
+    'e^x = Σ x^n/n!',
+    'ln(xy) = ln(x) + ln(y)',
+    '∫e^x dx = e^x + C',
+    'd/dx[x^n] = nx^(n-1)',
+    'lim(h→0) [f(x+h)-f(x)]/h',
+    'Var(X) = E[X²] - (E[X])²',
+    'Z = (X - μ)/σ',
+    'P(X = k) = λ^k e^(-λ)/k!',
+    'f\'(x) = lim(h→0) [f(x+h)-f(x)]/h',
+    '∫₀^∞ e^(-x²) dx = √π/2',
+    'Γ(n) = (n-1)!',
+    'ζ(s) = Σ 1/n^s',
+    'φ(n) = n∏(1-1/p)',
+    'F = G(m₁m₂)/r²',
+    'E = hf',
+    'c = λf',
+    'p = mv',
+    'W = F·d',
+    'P = W/t',
+    'V = IR',
+    'P = I²R'
+  ];
+
+  const colors = [
+    'rgba(0, 255, 255, ',
+    'rgba(0, 150, 255, ',
+    'rgba(100, 200, 255, ',
+    'rgba(50, 255, 200, ',
+    'rgba(150, 150, 255, '
   ];
 
   useEffect(() => {
@@ -72,18 +103,20 @@ const MathFormulasBackground = () => {
         x: Math.random() * 100,
         y: Math.random() * 100,
         rotation: Math.random() * 360,
-        opacity: 0.1 + Math.random() * 0.15,
-        fontSize: 12 + Math.random() * 8
+        opacity: 0.15 + Math.random() * 0.25,
+        fontSize: 10 + Math.random() * 12,
+        color: colors[Math.floor(Math.random() * colors.length)]
       };
       
-      setFormulas(prev => [...prev.slice(-15), newFormula]);
+      setFormulas(prev => [...prev.slice(-25), newFormula]);
     };
 
-    const interval = setInterval(generateFormula, 2000);
+    // More frequent generation for better visibility
+    const interval = setInterval(generateFormula, 800);
     
     // Generate initial formulas
-    for (let i = 0; i < 8; i++) {
-      setTimeout(() => generateFormula(), i * 300);
+    for (let i = 0; i < 15; i++) {
+      setTimeout(() => generateFormula(), i * 200);
     }
 
     return () => clearInterval(interval);
@@ -94,15 +127,17 @@ const MathFormulasBackground = () => {
       {formulas.map((formula) => (
         <div
           key={formula.id}
-          className="absolute font-mono text-cyan-400/20 select-none floating-formula"
+          className="absolute font-mono select-none floating-formula"
           style={{
             left: `${formula.x}%`,
             top: `${formula.y}%`,
             transform: `rotate(${formula.rotation}deg)`,
-            opacity: formula.opacity,
+            color: `${formula.color}${formula.opacity})`,
             fontSize: `${formula.fontSize}px`,
-            animation: `floatFormula ${20 + Math.random() * 15}s linear infinite`,
-            animationDelay: `${Math.random() * 5}s`
+            animation: `floatFormula ${15 + Math.random() * 10}s linear infinite`,
+            animationDelay: `${Math.random() * 3}s`,
+            textShadow: `0 0 10px ${formula.color}0.5)`,
+            fontWeight: Math.random() > 0.5 ? '600' : '400'
           }}
         >
           {formula.formula}
