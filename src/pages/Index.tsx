@@ -44,15 +44,15 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-6">
             <div className="font-display text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
-              ZS
+              ZRS
             </div>
             <p className="text-gray-400 text-sm">
-              Digital Ninja • AI Samurai • Code Warrior
+              AI & ML Student • Research Scholar • Innovation Leader
             </p>
           </div>
           <div className="border-t border-gray-800 pt-6">
             <p className="text-gray-500 text-sm">
-              © 2024 Zian Rajeshkumar Surani. Forged with passion for AI and innovation. Built with React & Tailwind CSS.
+              © 2024 Zian Rajeshkumar Surani. Built with passion for AI and innovation. React & Tailwind CSS.
             </p>
           </div>
         </div>

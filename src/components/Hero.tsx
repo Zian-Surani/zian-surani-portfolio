@@ -1,11 +1,10 @@
-
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "Forging the Future with AI, Code, and Digital Mastery.";
+  const fullText = "Innovative AI & ML Student • Research Scholar • EDC President";
 
   useEffect(() => {
     let index = 0;
@@ -88,9 +87,9 @@ const Hero = () => {
               <div className="w-full h-full rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 flex items-center justify-center border-2 border-cyan-400/30">
                 <div className="text-center">
                   <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-4xl font-bold text-black">
-                    ZS
+                    ZRS
                   </div>
-                  <p className="text-cyan-400 text-sm">Photo placeholder</p>
+                  <p className="text-cyan-400 text-sm">Zian Rajeshkumar Surani</p>
                 </div>
               </div>
             </div>
@@ -110,7 +109,7 @@ const Hero = () => {
             <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity text-cyan-400`}>|</span>
           </div>
           <div className="flex flex-wrap gap-3 mb-8">
-            {['AI Ninja', 'Code Samurai', 'Startup Sensei', 'ML Master'].map((tag, index) => (
+            {['AI & ML Student', 'Research Scholar', 'EDC President', 'Tech Innovator'].map((tag, index) => (
               <span 
                 key={tag}
                 className="glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-500/30 text-sm font-medium hover:glow transition-all duration-300"
@@ -122,8 +121,8 @@ const Hero = () => {
           </div>
           
           <p className="text-lg text-gray-400 mb-8 max-w-2xl leading-relaxed">
-            Digital warrior crafting intelligent systems • Research samurai exploring AI frontiers • 
-            Entrepreneurial ninja building tomorrow's solutions
+            B.Tech CSE (AI & ML) student at SRM IST with 9.7 CGPA • Leading entrepreneurship initiatives • 
+            Specializing in neuromorphic computing and AI research
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 items-start">
@@ -131,14 +130,16 @@ const Hero = () => {
               onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 rounded-xl text-lg font-medium hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/25"
             >
-              Enter the Dojo
+              Explore Skills
             </button>
-            <button 
-              onClick={() => document.getElementById('startup')?.scrollIntoView({ behavior: 'smooth' })}
+            <a 
+              href="https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border-2 border-cyan-400 px-8 py-4 rounded-xl text-lg font-medium hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105"
             >
-              View Ventures
-            </button>
+              View LinkedIn
+            </a>
           </div>
         </div>
       </div>

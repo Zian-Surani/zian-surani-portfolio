@@ -8,66 +8,66 @@ const Achievements = () => {
 
   const achievements = [
     {
-      title: "Best Paper Award - ICRA 2021",
+      title: "Gold Medal - Research Day 2025",
       category: "Research Excellence",
-      description: "Recognized for groundbreaking research in autonomous robot navigation with 95% success rate in complex environments.",
-      date: "2021",
+      description: "Gold Medal in Computing and Technology at SRM IST for the paper 'Bitwise Parsing for Precision in 1-Bit LLM'.",
+      date: "2025",
       icon: Trophy,
       color: "from-yellow-400 to-orange-500",
-      level: "International"
+      level: "University"
     },
     {
-      title: "Forbes 30 Under 30 - Technology",
-      category: "Industry Recognition",
-      description: "Selected for revolutionary AI applications in agriculture and contribution to sustainable farming solutions.",
-      date: "2023",
+      title: "Best Paper Award",
+      category: "Research Recognition",
+      description: "Best Paper Award for research on neuromorphic computing and SNNs for AI energy-efficient computation.",
+      date: "2025",
       icon: Crown,
       color: "from-purple-400 to-pink-500",
-      level: "Global"
+      level: "Academic"
     },
     {
-      title: "Global AgTech Innovation Award",
-      category: "Startup Achievement",
-      description: "Winner for Kisan Mithran's impact on agricultural productivity and farmer empowerment through AI technology.",
-      date: "2023",
+      title: "Top 5000 Finalist - Build with India",
+      category: "Hackathon Achievement",
+      description: "Top 5000 finalist in 'Build with India' hackathon organized by Google, showcasing innovative solutions.",
+      date: "2024",
       icon: Award,
       color: "from-green-400 to-emerald-500",
-      level: "International"
-    },
-    {
-      title: "NSF Graduate Research Fellowship",
-      category: "Academic Honor",
-      description: "Awarded prestigious fellowship for doctoral research in machine learning and computer vision applications.",
-      date: "2020",
-      icon: Medal,
-      color: "from-blue-400 to-indigo-500",
       level: "National"
     },
     {
-      title: "TechCrunch Disrupt Startup Battlefield Winner",
-      category: "Entrepreneurship",
-      description: "First place winner for NeuralEdge Labs' revolutionary edge AI deployment platform.",
-      date: "2023",
-      icon: Target,
-      color: "from-cyan-400 to-blue-500",
-      level: "Industry"
+      title: "Google Cloud Associate Certification",
+      category: "Professional Certification",
+      description: "Google Cloud Associate Cloud Engineer certification renewed in 2024, demonstrating cloud expertise.",
+      date: "2024",
+      icon: Medal,
+      color: "from-blue-400 to-indigo-500",
+      level: "Professional"
     },
     {
-      title: "IEEE Outstanding Student Award",
-      category: "Academic Excellence",
-      description: "Highest academic achievement in computer science with focus on artificial intelligence and robotics.",
-      date: "2021",
+      title: "EDC President",
+      category: "Leadership Excellence",
+      description: "President of Entrepreneurship Development Cell at SRM IST, leading strategic initiatives and mentoring startups.",
+      date: "2023 - Present",
+      icon: Target,
+      color: "from-cyan-400 to-blue-500",
+      level: "Leadership"
+    },
+    {
+      title: "Academic Excellence",
+      category: "Academic Achievement",
+      description: "Maintaining CGPA of 9.7 in B.Tech Computer Science and Engineering (AI & ML) at SRM IST.",
+      date: "2023 - Present",
       icon: Star,
       color: "from-orange-400 to-red-500",
-      level: "Professional"
+      level: "Academic"
     }
   ];
 
   const stats = [
-    { label: "Papers Published", value: "15+", description: "Peer-reviewed publications" },
-    { label: "Citations", value: "500+", description: "Academic citations" },
-    { label: "Awards Won", value: "12", description: "International recognition" },
-    { label: "Patents Filed", value: "3", description: "AI/ML innovations" }
+    { label: "CGPA", value: "9.7", description: "Academic excellence" },
+    { label: "Publications", value: "6+", description: "Research papers" },
+    { label: "Certifications", value: "5+", description: "Professional credentials" },
+    { label: "Leadership", value: "2+", description: "Years as EDC President" }
   ];
 
   useEffect(() => {
@@ -92,10 +92,10 @@ const Achievements = () => {
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
           <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Hall of Glory
+            Achievements
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Trophies earned through relentless pursuit of excellence. Each achievement marks a milestone in the journey of innovation and digital mastery.
+            Recognition earned through dedication to AI research, academic excellence, and leadership in innovation.
           </p>
         </div>
 

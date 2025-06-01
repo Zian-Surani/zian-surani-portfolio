@@ -45,7 +45,7 @@ const Contact = () => {
             Let's Connect
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ready to collaborate on the next breakthrough in AI? Let's discuss how we can build the future together.
+            Ready to collaborate on AI research and innovation? Let's discuss how we can build the future together.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white font-medium">zian.surani@example.com</p>
+                    <p className="text-white font-medium">zian.surani@gmail.com</p>
                   </div>
                 </div>
                 
@@ -72,7 +72,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white font-medium">San Francisco, CA</p>
+                    <p className="text-white font-medium">Ahmedabad, Gujarat, India</p>
                   </div>
                 </div>
               </div>
@@ -80,15 +80,28 @@ const Contact = () => {
               <div className="mt-8 pt-8 border-t border-white/10">
                 <p className="text-gray-400 mb-4">Follow my journey</p>
                 <div className="flex space-x-4">
-                  <button className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glow transition-all duration-300">
+                  <a 
+                    href="https://github.com/Zian-Surani" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glow transition-all duration-300"
+                  >
                     <Github className="w-5 h-5 text-gray-400 hover:text-blue-400" />
-                  </button>
-                  <button className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glow transition-all duration-300">
+                  </a>
+                  <a 
+                    href="https://linkedin.com/in/zian-rajeshkumar-surani-125215195" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glow transition-all duration-300"
+                  >
                     <Linkedin className="w-5 h-5 text-gray-400 hover:text-blue-400" />
-                  </button>
-                  <button className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glow transition-all duration-300">
+                  </a>
+                  <a 
+                    href="mailto:zian.surani@gmail.com"
+                    className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:glow transition-all duration-300"
+                  >
                     <Mail className="w-5 h-5 text-gray-400 hover:text-blue-400" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

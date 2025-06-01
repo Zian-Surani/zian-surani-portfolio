@@ -10,65 +10,67 @@ const Experience = () => {
 
   const experiences = [
     {
-      id: 'ai-research-scientist',
-      title: "AI Research Scientist",
-      company: "TechVanguard Labs",
-      period: "2023 - Present",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      description: "Leading cutting-edge research in computer vision and deep learning architectures. Published 12+ papers in top-tier conferences.",
+      id: 'nit-intern',
+      title: "AI and Automation Intern",
+      company: "National Institute of Technology, Tiruchirappalli",
+      period: "Jun 2025 – Jul 2025",
+      location: "Tiruchirappalli, India",
+      type: "Internship",
+      description: "Contributed to AI and robotics research in industrial automation. Developed simulation tools and automation logic for testbeds.",
       achievements: [
-        "Developed novel neural architecture achieving 15% improvement in image classification",
-        "Led team of 8 researchers on autonomous vehicle perception systems",
-        "Secured $2.5M in research funding from NSF and industry partners"
+        "Contributed to AI and robotics research in industrial automation",
+        "Developed simulation tools and automation logic for testbeds",
+        "Engaged in collaborative research on reinforcement learning and control systems"
       ],
-      technologies: ["PyTorch", "TensorFlow", "CUDA", "OpenCV", "Python"],
+      technologies: ["Python", "TensorFlow", "Robotics", "AI", "Automation"],
       color: "from-cyan-400 to-blue-500"
     },
     {
-      id: 'founder-cto',
-      title: "Founder & CTO",
-      company: "Kisan Mithran",
-      period: "2022 - Present",
+      id: 'remote-cto',
+      title: "AI Research Engineer Intern",
+      company: "Remote CTO",
+      period: "Dec 2024 – Jan 2025",
       location: "Remote",
-      type: "Startup",
-      description: "Building AI-powered agricultural solutions to revolutionize farming practices and increase crop yields through intelligent automation.",
+      type: "Internship",
+      description: "Conducted research on emerging AI technologies and optimized machine learning models for improved performance.",
       achievements: [
-        "Raised $1.2M seed funding from prominent VCs",
-        "Deployed solutions across 500+ farms in rural India",
-        "Achieved 40% increase in crop yield for partner farmers"
+        "Conducted research on emerging AI technologies",
+        "Optimized machine learning models for improved performance",
+        "Collaborated with cross-functional teams to integrate AI innovations"
       ],
-      technologies: ["React", "Node.js", "MongoDB", "AWS", "IoT"],
+      technologies: ["Python", "Machine Learning", "AI Research", "Model Optimization"],
       color: "from-green-400 to-emerald-500"
     },
     {
-      title: "Senior ML Engineer",
-      company: "DataFlow Dynamics",
-      period: "2021 - 2023",
-      location: "Boston, MA",
-      type: "Full-time",
-      description: "Architected and deployed large-scale machine learning systems processing 10M+ daily transactions for financial services.",
+      id: 'palo-alto',
+      title: "Cybersecurity Virtual Intern",
+      company: "Palo Alto Networks (AICTE & EduSkills)",
+      period: "Jan 2025 – Mar 2025",
+      location: "Virtual",
+      type: "Virtual Internship",
+      description: "Completed a 10-week virtual internship focusing on cybersecurity concepts and network defense strategies.",
       achievements: [
-        "Built real-time fraud detection system with 99.7% accuracy",
-        "Reduced model inference time by 60% through optimization",
-        "Mentored 5 junior engineers and established ML best practices"
+        "Completed 10-week virtual internship in cybersecurity",
+        "Gained hands-on experience with network defense strategies",
+        "Applied cybersecurity practices to real-world scenarios"
       ],
-      technologies: ["Scikit-learn", "Apache Spark", "Docker", "Kubernetes", "PostgreSQL"],
+      technologies: ["Network Security", "Cybersecurity", "Defense Strategies"],
       color: "from-purple-400 to-pink-500"
     },
     {
-      title: "Research Assistant",
-      company: "MIT Computer Science Lab",
-      period: "2020 - 2021",
-      location: "Cambridge, MA",
-      type: "Research",
-      description: "Conducted research in reinforcement learning and robotics under Prof. Jane Smith. Focus on autonomous navigation systems.",
+      id: 'google-android',
+      title: "Android Developer Virtual Intern",
+      company: "Google for Developers (AICTE & EduSkills)",
+      period: "Oct 2024 – Dec 2024",
+      location: "Virtual",
+      type: "Virtual Internship",
+      description: "Completed a 10-week virtual internship in Android development with outstanding performance.",
       achievements: [
-        "Co-authored 4 papers in ICRA and NeurIPS conferences",
-        "Developed robot navigation algorithm with 95% success rate",
-        "Won Best Paper Award at ICRA 2021"
+        "Achieved Grade 'O' (Outstanding) with 90-100% performance",
+        "Enhanced knowledge in mobile app development",
+        "Completed comprehensive Android development curriculum"
       ],
-      technologies: ["ROS", "Python", "C++", "Gazebo", "TensorFlow"],
+      technologies: ["Android Studio", "Java", "Kotlin", "Mobile Development"],
       color: "from-orange-400 to-red-500"
     }
   ];
@@ -99,10 +101,10 @@ const Experience = () => {
       <div className="max-w-6xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
           <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Battle History
+            Work Experience
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Each mission completed, each challenge conquered. A timeline of digital warfare and innovation mastery.
+            Professional journey through AI research, development, and innovation across leading organizations.
           </p>
         </div>
 
