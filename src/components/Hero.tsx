@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -84,13 +85,12 @@ const Hero = () => {
         <div className="flex-shrink-0">
           <div className="relative">
             <div className="w-80 h-80 rounded-full glass p-4 glow-pulse">
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-600/20 flex items-center justify-center border-2 border-cyan-400/30">
-                <div className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-4xl font-bold text-black">
-                    ZRS
-                  </div>
-                  <p className="text-cyan-400 text-sm">Zian Rajeshkumar Surani</p>
-                </div>
+              <div className="w-full h-full rounded-full overflow-hidden border-2 border-cyan-400/30">
+                <img 
+                  src="/lovable-uploads/d4ff3ce8-21b6-428d-9a75-97526e9cbf2e.png" 
+                  alt="Zian Rajeshkumar Surani"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             {/* Floating elements around photo */}

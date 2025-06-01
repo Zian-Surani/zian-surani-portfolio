@@ -90,12 +90,12 @@ const About = () => {
                 real-world applications, always with a focus on creating meaningful impact.
               </p>
               <p className="text-gray-300 leading-relaxed mb-6">
-                As a startup founder, I've led teams in developing innovative solutions that bridge 
-                the gap between cutting-edge research and practical applications. My approach combines 
-                rigorous scientific methodology with entrepreneurial thinking.
+                As President of the Entrepreneurship Development Cell at SRM IST, I lead teams in developing 
+                innovative solutions that bridge the gap between cutting-edge research and practical applications. 
+                My approach combines rigorous scientific methodology with entrepreneurial thinking.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['PhD Candidate', 'Startup Founder', 'AI Researcher', 'Tech Lead'].map((tag, index) => (
+                {['AI Researcher', 'EDC President', 'Gold Medalist', 'Tech Innovator'].map((tag, index) => (
                   <span key={index} className="glass px-3 py-1 rounded-full text-sm text-blue-400">
                     {tag}
                   </span>
@@ -107,32 +107,39 @@ const About = () => {
           <div className={`${isVisible ? 'slide-in-right animate' : 'slide-in-right'}`}>
             <div className="glass p-8 rounded-2xl">
               <h3 className="font-display text-2xl font-bold mb-8 text-center text-white">Core Expertise</h3>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-6">
                 {expertiseAreas.map((area, index) => (
                   <div
                     key={area.name}
-                    className={`relative p-4 rounded-xl bg-gradient-to-br ${area.color} bg-opacity-10 border border-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group`}
+                    className={`relative p-6 rounded-xl bg-gradient-to-r ${area.color} bg-opacity-10 border border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer group backdrop-blur-sm`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="flex items-center mb-3">
-                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${area.color} flex items-center justify-center mr-3`}>
-                        <area.icon className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-semibold text-sm">{area.name}</h4>
-                        <div className="w-full bg-gray-700 rounded-full h-1.5 mt-1">
-                          <div 
-                            className={`h-1.5 rounded-full bg-gradient-to-r ${area.color} transition-all duration-1000 ${isVisible ? 'animate-pulse' : ''}`}
-                            style={{ width: isVisible ? `${area.level}%` : '0%' }}
-                          />
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center">
+                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${area.color} flex items-center justify-center mr-4 shadow-lg`}>
+                          <area.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="text-white font-bold text-lg">{area.name}</h4>
+                          <p className="text-gray-300 text-sm leading-relaxed mt-1">
+                            {area.description}
+                          </p>
                         </div>
                       </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-white mb-1">{area.level}%</div>
+                        <div className="text-xs text-gray-400">Proficiency</div>
+                      </div>
                     </div>
-                    <p className="text-gray-400 text-xs leading-relaxed group-hover:text-gray-300 transition-colors">
-                      {area.description}
-                    </p>
-                    <div className="absolute top-2 right-2 text-xs text-gray-500 font-mono">
-                      {area.level}%
+                    
+                    <div className="w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
+                      <div 
+                        className={`h-full rounded-full bg-gradient-to-r ${area.color} transition-all duration-1000 ${isVisible ? 'shadow-lg' : ''}`}
+                        style={{ 
+                          width: isVisible ? `${area.level}%` : '0%',
+                          boxShadow: `0 0 20px rgba(${area.color.includes('blue') ? '59, 130, 246' : area.color.includes('purple') ? '147, 51, 234' : area.color.includes('cyan') ? '6, 182, 212' : area.color.includes('green') ? '34, 197, 94' : area.color.includes('orange') ? '251, 146, 60' : '236, 72, 153'}, 0.5)`
+                        }}
+                      />
                     </div>
                   </div>
                 ))}
