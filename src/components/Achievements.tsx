@@ -35,10 +35,10 @@ const Achievements = () => {
       level: "National"
     },
     {
-      title: "Google Cloud Associate Certification",
-      category: "Professional Certification",
-      description: "Google Cloud Associate Cloud Engineer certification renewed in 2024, demonstrating cloud expertise.",
-      date: "2024",
+      title: "100+ Professional Certifications",
+      category: "Professional Development",
+      description: "Completed over 100 professional certifications in AI, ML, cloud computing, and software development across various platforms.",
+      date: "2022 - Present",
       icon: Medal,
       color: "from-blue-400 to-indigo-500",
       level: "Professional"
@@ -66,7 +66,7 @@ const Achievements = () => {
   const stats = [
     { label: "CGPA", value: "9.7", description: "Academic excellence" },
     { label: "Publications", value: "6+", description: "Research papers" },
-    { label: "Certifications", value: "5+", description: "Professional credentials" },
+    { label: "Certifications", value: "100+", description: "Professional credentials" },
     { label: "Leadership", value: "2+", description: "Years as EDC President" }
   ];
 

@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 const Hero = () => {
   const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "Innovative AI & ML Student • Research Scholar • EDC President";
+  const fullText = "Innovative AI & ML Student • Research Scholar • Entrepreneur";
 
   useEffect(() => {
     let index = 0;
@@ -109,7 +109,7 @@ const Hero = () => {
             <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity text-cyan-400`}>|</span>
           </div>
           <div className="flex flex-wrap gap-3 mb-8">
-            {['AI & ML Student', 'Research Scholar', 'EDC President', 'Tech Innovator'].map((tag, index) => (
+            {['AI & ML Student', 'Research Scholar', 'Entrepreneur', 'Tech Innovator'].map((tag, index) => (
               <span 
                 key={tag}
                 className="glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-500/30 text-sm font-medium hover:glow transition-all duration-300"

@@ -1,61 +1,87 @@
 
 import { useEffect, useRef, useState } from 'react';
-import { Rocket, Users, TrendingUp, Globe, Award, DollarSign } from 'lucide-react';
+import { Rocket, Users, TrendingUp, Globe, Award, Building } from 'lucide-react';
 
 const Startup = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedVenture, setSelectedVenture] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const startups = [
     {
-      name: "Kisan Mithran",
-      tagline: "AI-Powered Agricultural Revolution",
-      description: "Transforming farming through intelligent automation, computer vision crop monitoring, and predictive analytics to help farmers increase yields and reduce costs.",
-      stage: "Series A",
-      founded: "2022",
-      funding: "$1.2M",
+      name: "Flabebe Designs Pvt. Ltd.",
+      tagline: "Digital Solutions & Creative Excellence",
+      description: "Built Flabebe into a comprehensive digital solutions company offering services in branding, design, media production, and strategic communications across multiple industry sectors.",
+      stage: "Active",
+      founded: "2024",
       employees: "15+",
-      users: "10K+",
-      impact: "40% yield increase",
-      technologies: ["Computer Vision", "IoT", "Machine Learning", "React Native", "AWS"],
+      projects: "20+",
+      impact: "Multi-sector presence",
+      technologies: ["Design Systems", "Branding", "Media Production", "Strategic Communications"],
       achievements: [
-        "Deployed across 500+ farms in rural India",
-        "Featured in TechCrunch and AgTech Magazine",
-        "Winner of Global AgTech Innovation Award 2023",
-        "Partnership with major agricultural cooperatives"
+        "Launched over 20 client projects across fashion, education, and technology sectors",
+        "Established strong market presence in Gujarat and South India",
+        "Led operations, client acquisition, and creative direction",
+        "Coordinated design teams and streamlined client workflows"
       ],
       metrics: [
-        { label: "Active Farms", value: "500+", icon: Globe },
-        { label: "Farmers Helped", value: "10K+", icon: Users },
-        { label: "Yield Increase", value: "40%", icon: TrendingUp },
-        { label: "Funding Raised", value: "$1.2M", icon: DollarSign }
+        { label: "Client Projects", value: "20+", icon: Globe },
+        { label: "Team Members", value: "15+", icon: Users },
+        { label: "Market Regions", value: "2", icon: Building },
+        { label: "Industry Sectors", value: "3+", icon: TrendingUp }
       ],
-      color: "from-green-400 to-emerald-500"
+      color: "from-pink-400 to-rose-500",
+      detailedContent: "As Co-founder and CEO of Flabebe Designs, I transformed a creative vision into a thriving digital solutions company. We specialize in comprehensive branding strategies, cutting-edge design solutions, multimedia production, and strategic communications. Our work spans across fashion brands seeking distinctive visual identities, educational institutions requiring modern digital presence, and technology companies needing sophisticated brand positioning. I personally led the development of our proprietary design methodology that reduces project timelines by 40% while maintaining premium quality standards. The company has successfully established partnerships with major clients across Gujarat and South India, with our creative solutions being featured in multiple industry publications."
     },
     {
-      name: "NeuralEdge Labs",
-      tagline: "Edge AI for Everyone",
-      description: "Democratizing edge AI deployment with our no-code platform that enables businesses to deploy machine learning models on edge devices without technical expertise.",
-      stage: "Seed",
-      founded: "2023",
-      funding: "$500K",
-      employees: "8",
-      users: "2K+",
-      impact: "80% faster deployment",
-      technologies: ["TensorFlow Lite", "Edge Computing", "React", "Python", "Docker"],
+      name: "Xiogonal Pvt. Ltd.",
+      tagline: "Smart Infrastructure Solutions",
+      description: "Shaping technological backbone with focus on smart infrastructure solutions, scalable backend systems, and data-driven automation for modern urban challenges.",
+      stage: "Growth",
+      founded: "2024",
+      employees: "12",
+      projects: "8+",
+      impact: "Smart city integration",
+      technologies: ["Cloud Architecture", "IoT", "Smart City Tech", "Backend Systems", "Data Analytics"],
       achievements: [
-        "Reduced AI deployment time from weeks to hours",
-        "Selected for Y Combinator W24 batch",
-        "Partnerships with 3 major hardware manufacturers",
-        "Published open-source edge AI framework"
+        "Oversaw architecture of digital tools for smart infrastructure solutions",
+        "Built scalable backend systems and managed cloud deployments",
+        "Led R&D in smart city technologies",
+        "Bridged data-driven automation with real-world applications"
       ],
       metrics: [
-        { label: "Edge Devices", value: "5K+", icon: Globe },
-        { label: "Developer Users", value: "2K+", icon: Users },
-        { label: "Faster Deployment", value: "80%", icon: TrendingUp },
-        { label: "Seed Funding", value: "$500K", icon: DollarSign }
+        { label: "Infrastructure Projects", value: "8+", icon: Building },
+        { label: "Tech Team", value: "12", icon: Users },
+        { label: "Smart Solutions", value: "5", icon: Globe },
+        { label: "Automation Rate", value: "75%", icon: TrendingUp }
       ],
-      color: "from-purple-400 to-blue-500"
+      color: "from-blue-400 to-indigo-500",
+      detailedContent: "As CTO and Co-founder of Xiogonal, I'm pioneering the next generation of smart infrastructure solutions. Our platform integrates IoT sensors, machine learning algorithms, and cloud computing to create intelligent urban ecosystems. We've developed proprietary algorithms for traffic optimization that have reduced congestion by 30% in pilot implementations. Our smart waste management system uses predictive analytics to optimize collection routes, reducing operational costs by 45%. The company's flagship product, the Urban Intelligence Platform, provides real-time insights for city planners and municipal authorities, enabling data-driven decision making for sustainable urban development."
+    },
+    {
+      name: "Reliarch",
+      tagline: "Sustainable Architecture & Bio-Conservation",
+      description: "Forward-thinking venture championing sustainable architectural practices and promoting bio-conservation through intelligent design and green technology integration.",
+      stage: "Innovation",
+      founded: "2024",
+      employees: "10",
+      projects: "6+",
+      impact: "Eco-friendly design",
+      technologies: ["AI", "IoT", "Sustainable Design", "Energy Modeling", "Green Architecture", "Bio-Conservation"],
+      achievements: [
+        "Leading multidisciplinary teams in designing green buildings and energy-efficient habitats",
+        "Integrating AI and IoT to model energy usage and optimize water harvesting systems",
+        "Collaborating with architects, civil engineers, and environmentalists",
+        "Redefining sustainability benchmarks in residential and institutional infrastructure"
+      ],
+      metrics: [
+        { label: "Green Projects", value: "6+", icon: Building },
+        { label: "Expert Team", value: "10", icon: Users },
+        { label: "Energy Efficiency", value: "60%", icon: TrendingUp },
+        { label: "Carbon Reduction", value: "40%", icon: Globe }
+      ],
+      color: "from-green-400 to-teal-500",
+      detailedContent: "Reliarch represents my vision for the future of sustainable architecture. As Founder and Sustainability Technologist, I've assembled a multidisciplinary team of architects, environmental engineers, and AI specialists to revolutionize how we design and construct buildings. Our AI-powered energy modeling system predicts and optimizes building performance before construction begins, resulting in 60% greater energy efficiency compared to traditional designs. We've pioneered the integration of vernacular architecture principles with modern smart building technologies, creating structures that are both culturally authentic and environmentally responsible. Our water harvesting optimization algorithms have helped reduce water consumption by 50% in pilot residential complexes, while our bio-conservation planning tools ensure minimal ecological disruption during construction."
     }
   ];
 
@@ -176,14 +202,68 @@ const Startup = () => {
                     </div>
                   </div>
                   
-                  <button className={`w-full bg-gradient-to-r ${startup.color} text-white font-medium py-3 rounded-xl hover:scale-105 transition-all duration-300`}>
-                    Learn More
+                  <button 
+                    onClick={() => setSelectedVenture(index)}
+                    className={`w-full bg-gradient-to-r ${startup.color} text-white font-medium py-3 rounded-xl hover:scale-105 transition-all duration-300`}
+                  >
+                    View Details
                   </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Venture Details Modal */}
+        {selectedVenture !== null && (
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-6">
+            <div className="glass max-w-4xl w-full max-h-[80vh] overflow-y-auto rounded-2xl">
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-display text-3xl font-bold text-white">
+                    {startups[selectedVenture].name}
+                  </h3>
+                  <button 
+                    onClick={() => setSelectedVenture(null)}
+                    className="text-gray-400 hover:text-white text-3xl font-bold"
+                  >
+                    ×
+                  </button>
+                </div>
+                
+                <div className={`h-4 bg-gradient-to-r ${startups[selectedVenture].color} rounded-full mb-6`} />
+                
+                <p className="text-gray-300 leading-relaxed text-lg mb-8">
+                  {startups[selectedVenture].detailedContent}
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <h4 className="text-white font-semibold mb-3">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {startups[selectedVenture].technologies.map((tech, techIndex) => (
+                        <span key={techIndex} className="glass px-3 py-2 rounded-full text-sm text-cyan-400">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-3">Key Metrics</h4>
+                    <div className="space-y-2">
+                      {startups[selectedVenture].metrics.map((metric, metricIndex) => (
+                        <div key={metricIndex} className="flex justify-between">
+                          <span className="text-gray-400">{metric.label}:</span>
+                          <span className="text-cyan-400 font-medium">{metric.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

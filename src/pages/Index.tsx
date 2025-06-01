@@ -14,7 +14,6 @@ import CursorTrail from '@/components/CursorTrail';
 import LoadingScreen from '@/components/LoadingScreen';
 import AIChat from '@/components/AIChat';
 import MathFormulasBackground from '@/components/MathFormulasBackground';
-import CustomCursor from '@/components/CustomCursor';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +26,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-x-hidden">
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <MathFormulasBackground />
-      <CustomCursor />
+      <CursorTrail />
       <Navigation />
       <Hero />
       <About />
