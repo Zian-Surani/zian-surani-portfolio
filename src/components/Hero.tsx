@@ -1,152 +1,107 @@
 
-import { useEffect, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronDown, Download, Mail, Github, Linkedin } from 'lucide-react';
 
 const Hero = () => {
-  const [text, setText] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
-  const fullText = "Innovative AI & ML Student • Research Scholar • Entrepreneur";
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setText(fullText.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(timer);
-        setInterval(() => {
-          setShowCursor(prev => !prev);
-        }, 500);
-      }
-    }, 80);
-
-    return () => clearInterval(timer);
+    setIsLoaded(true);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Smooth animated background with floating circles */}
-      <div className="absolute inset-0">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900/50 to-black" />
-        
-        {/* Floating circles */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full opacity-20"
-            style={{
-              width: `${20 + Math.random() * 100}px`,
-              height: `${20 + Math.random() * 100}px`,
-              left: `${Math.random() * 100}%`,
-              background: `radial-gradient(circle, ${
-                Math.random() > 0.5 ? '#00ffff' : '#0066ff'
-              }40, transparent)`,
-              animation: `floatCircle ${8 + Math.random() * 10}s linear infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-
-        {/* Smooth flowing lines */}
-        <div className="absolute inset-0 opacity-30">
-          <svg className="w-full h-full" viewBox="0 0 1200 800">
-            {[...Array(8)].map((_, i) => (
-              <path
-                key={i}
-                d={`M0,${200 + i * 80} Q600,${100 + Math.random() * 200} 1200,${200 + i * 80}`}
-                stroke={`url(#gradient${i})`}
-                strokeWidth="2"
-                fill="none"
-                opacity="0.4"
-                style={{
-                  animation: `float ${6 + Math.random() * 4}s ease-in-out infinite`,
-                  animationDelay: `${i * 0.5}s`
-                }}
-              />
-            ))}
-            <defs>
-              {[...Array(8)].map((_, i) => (
-                <linearGradient key={i} id={`gradient${i}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="rgba(0, 255, 255, 0)" />
-                  <stop offset="50%" stopColor="rgba(0, 255, 255, 0.6)" />
-                  <stop offset="100%" stopColor="rgba(0, 102, 255, 0)" />
-                </linearGradient>
-              ))}
-            </defs>
-          </svg>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="text-center z-10 max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
-        {/* Photo Section */}
-        <div className="flex-shrink-0">
-          <div className="relative">
-            <div className="w-80 h-80 rounded-full glass p-4 glow-pulse">
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-cyan-400/30">
-                <img 
-                  src="/lovable-uploads/d4ff3ce8-21b6-428d-9a75-97526e9cbf2e.png" 
-                  alt="Zian Rajeshkumar Surani"
-                  className="w-full h-full object-cover"
-                />
+    <section className="min-h-screen flex items-center justify-center px-4 md:px-6 pt-20 relative overflow-hidden">
+      {/* Content */}
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+        <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {/* Profile Image */}
+          <div className="mb-6 md:mb-8">
+            <div className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 p-1 glow-pulse">
+              <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
+                <span className="text-2xl md:text-3xl font-bold text-white">ZS</span>
               </div>
             </div>
-            {/* Floating elements around photo */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-cyan-400/20 rounded-full float-animation" />
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-400/20 rounded-full float-animation" style={{ animationDelay: '1s' }} />
           </div>
-        </div>
 
-        {/* Text Content */}
-        <div className="flex-1 text-left lg:text-left">
-          <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent leading-tight">
-            Zian Rajeshkumar Surani
+          {/* Main Content */}
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6">
+            <span className="bg-gradient-to-r from-white via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Zian Rajeshkumar Surani
+            </span>
           </h1>
-          <div className="text-xl md:text-2xl text-gray-300 h-12 font-mono mb-6">
-            {text}
-            <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity text-cyan-400`}>|</span>
-          </div>
-          <div className="flex flex-wrap gap-3 mb-8">
-            {['AI & ML Student', 'Research Scholar', 'Entrepreneur', 'Tech Innovator'].map((tag, index) => (
-              <span 
-                key={tag}
-                className="glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-500/30 text-sm font-medium hover:glow transition-all duration-300"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
           
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl leading-relaxed">
-            B.Tech CSE (AI & ML) student at SRM IST with 9.7 CGPA • Leading entrepreneurship initiatives • 
-            Specializing in neuromorphic computing and AI research
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <button 
-              onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 rounded-xl text-lg font-medium hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/25"
-            >
-              Explore Skills
-            </button>
-            <a 
-              href="https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
+          <div className="mb-6 md:mb-8">
+            <p className="text-xl md:text-2xl lg:text-3xl text-cyan-400 font-semibold mb-2 md:mb-3">
+              AI & ML Student • Research Scholar • Entrepreneur
+            </p>
+            <p className="text-base md:text-lg lg:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed px-4">
+              Pioneering the future of artificial intelligence through cutting-edge research in neuromorphic computing, 
+              sustainable AI systems, and innovative solutions for real-world challenges. Currently pursuing B.Tech in AI & ML 
+              while building the next generation of intelligent systems.
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 md:mb-12 px-4">
+            <a
+              href="https://drive.google.com/file/d/1ovF3P2v4ZQRXVYqiLW-P28Mwl9HsiwS1/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-cyan-400 px-8 py-4 rounded-xl text-lg font-medium hover:bg-cyan-400/10 transition-all duration-300 transform hover:scale-105"
+              className="group bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 flex items-center space-x-2 w-full sm:w-auto justify-center"
             >
-              View LinkedIn
+              <Download className="w-5 h-5 group-hover:animate-bounce" />
+              <span>Download CV</span>
+            </a>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="border-2 border-cyan-400 text-cyan-400 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg hover:bg-cyan-400 hover:text-black transition-all duration-300 flex items-center space-x-2 w-full sm:w-auto justify-center"
+            >
+              <Mail className="w-5 h-5" />
+              <span>Get In Touch</span>
+            </button>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex justify-center space-x-6 mb-8 md:mb-12">
+            <a 
+              href="https://github.com/Zian-Surani" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
+            >
+              <Github className="w-6 h-6 md:w-8 md:h-8" />
+            </a>
+            <a 
+              href="https://linkedin.com/in/zian-rajeshkumar-surani-125215195" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
+            >
+              <Linkedin className="w-6 h-6 md:w-8 md:h-8" />
+            </a>
+            <a 
+              href="mailto:zian.surani@gmail.com"
+              className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
+            >
+              <Mail className="w-6 h-6 md:w-8 md:h-8" />
             </a>
           </div>
-        </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-6 h-6 text-cyan-400" />
+          {/* Scroll Indicator */}
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="animate-bounce text-cyan-400 hover:text-white transition-colors duration-300"
+          >
+            <ChevronDown className="w-8 h-8 md:w-10 md:h-10 mx-auto" />
+          </button>
+        </div>
       </div>
     </section>
   );

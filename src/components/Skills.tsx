@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Brain, Code, Database, Cloud, Cpu, Zap } from 'lucide-react';
 
 const Skills = () => {
@@ -8,76 +8,70 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "AI & Machine Learning",
       icon: Brain,
+      title: "AI & Machine Learning",
       skills: [
-        { name: "TensorFlow", level: 95 },
-        { name: "PyTorch", level: 90 },
-        { name: "Scikit-learn", level: 88 },
-        { name: "OpenCV", level: 92 },
-        { name: "Keras", level: 85 }
-      ],
-      color: "from-cyan-400 to-blue-500"
+        { name: "Deep Learning", level: 95 },
+        { name: "Neural Networks", level: 92 },
+        { name: "Computer Vision", level: 88 },
+        { name: "NLP", level: 85 },
+        { name: "Reinforcement Learning", level: 80 }
+      ]
     },
     {
-      title: "Programming Languages",
       icon: Code,
+      title: "Programming Languages",
       skills: [
-        { name: "Python", level: 98 },
-        { name: "JavaScript", level: 92 },
-        { name: "TypeScript", level: 88 },
+        { name: "Python", level: 95 },
+        { name: "JavaScript", level: 88 },
         { name: "C++", level: 85 },
-        { name: "Java", level: 80 }
-      ],
-      color: "from-purple-400 to-pink-500"
+        { name: "Java", level: 82 },
+        { name: "R", level: 78 }
+      ]
     },
     {
-      title: "Web Development",
-      icon: Zap,
-      skills: [
-        { name: "React", level: 94 },
-        { name: "Next.js", level: 90 },
-        { name: "Node.js", level: 88 },
-        { name: "FastAPI", level: 92 },
-        { name: "GraphQL", level: 85 }
-      ],
-      color: "from-green-400 to-emerald-500"
-    },
-    {
-      title: "Databases",
       icon: Database,
+      title: "Data & Analytics",
       skills: [
-        { name: "MongoDB", level: 90 },
-        { name: "PostgreSQL", level: 88 },
-        { name: "Redis", level: 85 },
-        { name: "Elasticsearch", level: 82 },
-        { name: "Neo4j", level: 78 }
-      ],
-      color: "from-orange-400 to-red-500"
+        { name: "Data Science", level: 90 },
+        { name: "Statistical Analysis", level: 88 },
+        { name: "Big Data", level: 85 },
+        { name: "Data Visualization", level: 87 },
+        { name: "ETL Processes", level: 83 }
+      ]
     },
     {
-      title: "Cloud & DevOps",
       icon: Cloud,
+      title: "Cloud & DevOps",
       skills: [
-        { name: "AWS", level: 92 },
-        { name: "Docker", level: 90 },
-        { name: "Kubernetes", level: 85 },
-        { name: "CI/CD", level: 88 },
-        { name: "Terraform", level: 80 }
-      ],
-      color: "from-blue-400 to-indigo-500"
+        { name: "AWS", level: 85 },
+        { name: "Docker", level: 88 },
+        { name: "Kubernetes", level: 82 },
+        { name: "CI/CD", level: 85 },
+        { name: "MLOps", level: 87 }
+      ]
     },
     {
-      title: "Hardware & IoT",
       icon: Cpu,
+      title: "Specialized AI",
       skills: [
-        { name: "Arduino", level: 88 },
-        { name: "Raspberry Pi", level: 85 },
-        { name: "CUDA", level: 82 },
-        { name: "Edge Computing", level: 80 },
-        { name: "Embedded Systems", level: 78 }
-      ],
-      color: "from-yellow-400 to-orange-500"
+        { name: "Neuromorphic Computing", level: 90 },
+        { name: "Edge AI", level: 85 },
+        { name: "Quantum ML", level: 75 },
+        { name: "Federated Learning", level: 80 },
+        { name: "AutoML", level: 88 }
+      ]
+    },
+    {
+      icon: Zap,
+      title: "Innovation & Research",
+      skills: [
+        { name: "Research Methodology", level: 92 },
+        { name: "Technical Writing", level: 88 },
+        { name: "Innovation Strategy", level: 90 },
+        { name: "Project Management", level: 85 },
+        { name: "Team Leadership", level: 87 }
+      ]
     }
   ];
 
@@ -88,7 +82,7 @@ const Skills = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -99,56 +93,59 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 px-6 bg-black/40">
+    <section id="skills" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Digital Arsenal
+        <div className={`text-center mb-12 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
+            Core Expertise
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Mastery forged through countless hours of practice, each skill honed to precision like a ninja's blade.
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+            Technical competencies spanning AI research, software development, and innovation leadership.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <div
-              key={categoryIndex}
-              className={`glass p-6 rounded-2xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-500 group ${
-                isVisible ? 'slide-in-left animate' : 'slide-in-left'
-              }`}
-              style={{ animationDelay: `${categoryIndex * 0.1}s` }}
-            >
-              <div className="flex items-center mb-6">
-                <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-white">
-                  {category.title}
-                </h3>
-              </div>
-              
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-300 text-sm font-medium">{skill.name}</span>
-                      <span className="text-cyan-400 text-sm font-bold">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
-                      <div 
-                        className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-1000 ease-out`}
-                        style={{ 
-                          width: isVisible ? `${skill.level}%` : '0%',
-                          transitionDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.1)}s`
-                        }}
-                      />
-                    </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          {skillCategories.map((category, categoryIndex) => {
+            const IconComponent = category.icon;
+            return (
+              <div
+                key={categoryIndex}
+                className={`glass rounded-xl p-6 md:p-8 ${
+                  isVisible ? 'stagger-in animate' : 'stagger-in'
+                }`}
+                style={{ animationDelay: `${categoryIndex * 0.1}s` }}
+              >
+                <div className="flex items-center mb-4 md:mb-6">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                    <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white" />
                   </div>
-                ))}
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-white">
+                    {category.title}
+                  </h3>
+                </div>
+                
+                <div className="space-y-4 md:space-y-5">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300 font-medium text-sm md:text-base">{skill.name}</span>
+                        <span className="text-blue-400 text-sm font-semibold">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-800 rounded-full h-2 md:h-2.5 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-blue-400 to-purple-500 rounded-full transition-all duration-1000 ease-out"
+                          style={{ 
+                            width: isVisible ? `${skill.level}%` : '0%',
+                            transitionDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.05)}s`
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,196 +1,215 @@
-import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, TrendingUp, ExternalLink, Briefcase, Rocket } from 'lucide-react';
+
+import { useState, useEffect, useRef } from 'react';
+import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react';
+
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedTab, setSelectedTab] = useState('work');
+  const [selectedExperience, setSelectedExperience] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
-  const workExperiences = [{
-    id: 'nit-intern',
-    title: "AI and Automation Intern",
-    company: "National Institute of Technology, Tiruchirappalli",
-    period: "Jun 2025 – Jul 2025",
-    location: "Tiruchirappalli, India",
-    type: "Internship",
-    description: "Contributed to AI and robotics research in industrial automation. Developed simulation tools and automation logic for testbeds.",
-    achievements: ["Contributed to AI and robotics research in industrial automation", "Developed simulation tools and automation logic for testbeds", "Engaged in collaborative research on reinforcement learning and control systems"],
-    technologies: ["Python", "TensorFlow", "Robotics", "AI", "Automation"],
-    color: "from-cyan-400 to-blue-500"
-  }, {
-    id: 'remote-cto',
-    title: "AI Research Engineer Intern",
-    company: "Remote CTO",
-    period: "Dec 2024 – Jan 2025",
-    location: "Remote",
-    type: "Internship",
-    description: "Conducted research on emerging AI technologies and optimized machine learning models for improved performance.",
-    achievements: ["Conducted research on emerging AI technologies", "Optimized machine learning models for improved performance", "Collaborated with cross-functional teams to integrate AI innovations into products"],
-    technologies: ["Python", "Machine Learning", "AI Research", "Model Optimization"],
-    color: "from-green-400 to-emerald-500"
-  }, {
-    id: 'palo-alto',
-    title: "Cybersecurity Virtual Intern",
-    company: "Palo Alto Networks (AICTE & EduSkills)",
-    period: "Jan 2025 – Mar 2025",
-    location: "Virtual",
-    type: "Virtual Internship",
-    description: "Completed a 10-week virtual internship focusing on cybersecurity concepts and network defense strategies.",
-    achievements: ["Completed 10-week virtual internship in cybersecurity", "Gained hands-on experience with real-world applications of cybersecurity practices", "Applied cybersecurity practices to real-world scenarios"],
-    technologies: ["Network Security", "Cybersecurity", "Defense Strategies"],
-    color: "from-purple-400 to-pink-500"
-  }, {
-    id: 'google-android',
-    title: "Android Developer Virtual Intern",
-    company: "Google for Developers (AICTE & EduSkills)",
-    period: "Oct 2024 – Dec 2024",
-    location: "Virtual",
-    type: "Virtual Internship",
-    description: "Completed a 10-week virtual internship in Android development with outstanding performance.",
-    achievements: ["Achieved Grade 'O' (Outstanding) with 90-100% performance", "Enhanced knowledge and skills in mobile app development", "Completed comprehensive Android development curriculum"],
-    technologies: ["Android Studio", "Java", "Kotlin", "Mobile Development"],
-    color: "from-orange-400 to-red-500"
-  }];
-  const entrepreneurialVentures = [{
-    id: 'flabebe',
-    title: "Co-founder & CEO",
-    company: "Flabebe Designs Pvt. Ltd.",
-    period: "Mar 2024 – Present",
-    location: "Gujarat, India",
-    type: "Entrepreneurship",
-    description: "Built Flabebe into a digital solutions company offering services in branding, design, media production, and strategic communications.",
-    achievements: ["Launched over 20 client projects across fashion, education, and technology sectors", "Established strong market presence in Gujarat and South India", "Led operations, client acquisition, and creative direction", "Coordinated design teams and streamlined client workflows"],
-    technologies: ["Design Systems", "Branding", "Media Production", "Strategic Communications"],
-    color: "from-pink-400 to-rose-500"
-  }, {
-    id: 'xiogonal',
-    title: "CTO & Co-founder",
-    company: "Xiogonal Pvt. Ltd.",
-    period: "Mar 2024 – Present",
-    location: "India",
-    type: "Entrepreneurship",
-    description: "Shaping the company's technological backbone with focus on smart infrastructure solutions and data-driven automation.",
-    achievements: ["Oversaw architecture of digital tools for smart infrastructure solutions", "Built scalable backend systems and managed cloud deployments", "Led R&D in smart city technologies", "Bridged data-driven automation with real-world applications"],
-    technologies: ["Cloud Architecture", "IoT", "Smart City Tech", "Backend Systems"],
-    color: "from-blue-400 to-indigo-500"
-  }, {
-    id: 'reliarch',
-    title: "Founder & Sustainability Technologist",
-    company: "Reliarch",
-    period: "Apr 2024 – Present",
-    location: "India",
-    type: "Entrepreneurship",
-    description: "Forward-thinking venture championing sustainable architectural practices and promoting bio-conservation through intelligent design.",
-    achievements: ["Leading multidisciplinary teams in designing green buildings and energy-efficient habitats", "Integrating AI and IoT to model energy usage and optimize water harvesting systems", "Collaborating with architects, civil engineers, and environmentalists", "Redefining sustainability benchmarks in residential and institutional infrastructure"],
-    technologies: ["AI", "IoT", "Sustainable Design", "Energy Modeling", "Green Architecture"],
-    color: "from-green-400 to-teal-500"
-  }];
+
+  const experiences = [
+    {
+      title: "Research Scholar",
+      company: "Nirma University",
+      location: "Ahmedabad, Gujarat",
+      duration: "2023 - Present",
+      type: "Academic Research",
+      description: "Leading cutting-edge research in AI and machine learning with focus on neuromorphic computing and sustainable AI systems.",
+      details: "As a Research Scholar at Nirma University, I have been at the forefront of artificial intelligence research, specializing in neuromorphic computing and energy-efficient AI systems. My research work includes developing novel spiking neural networks for low-power computation, investigating blockchain-based decentralized AI training methods, and advancing sustainable machine learning practices. I have collaborated with international research teams, published multiple papers in peer-reviewed journals, and presented findings at prestigious conferences. My work contributes to the development of next-generation AI systems that are both powerful and environmentally responsible.",
+      achievements: [
+        "Published research on Neuromorphic Computing using SNNs",
+        "Developed energy-efficient AI computation models",
+        "Collaborated on blockchain-enabled AI training systems",
+        "Presented research at international conferences"
+      ]
+    },
+    {
+      title: "AI/ML Engineering Intern",
+      company: "TechVantage Solutions",
+      location: "Remote",
+      duration: "2023 - 2024",
+      type: "Industry Experience",
+      description: "Developed and deployed machine learning models for enterprise clients, focusing on computer vision and natural language processing applications.",
+      details: "During my internship at TechVantage Solutions, I gained hands-on experience in deploying AI solutions for real-world business challenges. I worked on developing computer vision systems for quality control in manufacturing, implemented natural language processing models for customer service automation, and optimized existing ML pipelines for better performance. My role involved collaborating with cross-functional teams, conducting data analysis, and ensuring the scalability and reliability of AI systems in production environments.",
+      achievements: [
+        "Developed CV systems improving quality control by 35%",
+        "Implemented NLP models for automated customer service",
+        "Optimized ML pipelines reducing inference time by 40%",
+        "Contributed to 5+ client projects across different industries"
+      ]
+    },
+    {
+      title: "Technical Lead",
+      company: "University Innovation Cell",
+      location: "Nirma University",
+      duration: "2022 - 2023",
+      type: "Leadership Role",
+      description: "Led technical initiatives and innovation projects, mentoring students in emerging technologies and research methodologies.",
+      details: "As Technical Lead at the University Innovation Cell, I spearheaded multiple innovation initiatives and mentored fellow students in cutting-edge technologies. I organized technical workshops, hackathons, and research seminars, fostering a culture of innovation within the university. My responsibilities included evaluating project proposals, providing technical guidance for student-led research projects, and establishing partnerships with industry professionals. I also coordinated with faculty members to bridge the gap between academic learning and practical implementation.",
+      achievements: [
+        "Led 10+ innovation projects and workshops",
+        "Mentored 50+ students in AI/ML technologies",
+        "Organized university's first AI research symposium",
+        "Established industry partnerships for student projects"
+      ]
+    },
+    {
+      title: "Freelance AI Developer",
+      company: "Independent",
+      location: "Remote",
+      duration: "2022 - Present",
+      type: "Freelance",
+      description: "Providing AI consulting and development services to startups and enterprises, specializing in custom ML solutions.",
+      details: "As a Freelance AI Developer, I have worked with diverse clients ranging from early-stage startups to established enterprises, delivering custom artificial intelligence solutions tailored to their specific needs. My services include developing machine learning models, implementing computer vision systems, creating chatbots and conversational AI, and providing AI strategy consulting. I have successfully completed projects in healthcare, e-commerce, agriculture, and fintech sectors, consistently delivering high-quality solutions that drive business value and innovation.",
+      achievements: [
+        "Completed 20+ successful AI projects",
+        "Worked with clients across 5 different industries",
+        "Delivered solutions improving efficiency by 50%+",
+        "Maintained 100% client satisfaction rate"
+      ]
+    }
+  ];
+
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    }, {
-      threshold: 0.2
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
-  const handleExperienceClick = (id: string) => {
-    navigate(`/experience/${id}`);
-  };
-  const currentExperiences = selectedTab === 'work' ? workExperiences : entrepreneurialVentures;
-  return <section id="experience" ref={sectionRef} className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+
+  return (
+    <section id="experience" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className={`text-center mb-12 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
             Professional Journey
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            From research and development to entrepreneurial ventures, building the future through AI, innovation, and sustainable technology.
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+            From academic research to industry applications, my journey spans diverse domains in AI and machine learning.
           </p>
-          
-          {/* Tab Navigation */}
-          <div className="flex justify-center mb-12">
-            <div className="glass p-2 rounded-xl border border-cyan-500/20">
-              <button onClick={() => setSelectedTab('work')} className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${selectedTab === 'work' ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : 'text-gray-400 hover:text-cyan-400'}`}>
-                <Briefcase className="w-5 h-5" />
-                <span>Work Experience</span>
-              </button>
-              
-            </div>
-          </div>
         </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500" />
-          
-          <div className="space-y-12">
-            {currentExperiences.map((exp, index) => <div key={index} className={`relative flex items-start cursor-pointer ${isVisible ? 'slide-in-right animate' : 'slide-in-right'}`} style={{
-            animationDelay: `${index * 0.2}s`
-          }} onClick={() => handleExperienceClick(exp.id)}>
-                {/* Timeline dot */}
-                <div className={`absolute left-6 w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black z-10`} />
-                
-                {/* Experience card */}
-                <div className="ml-20 glass p-8 rounded-2xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-500 w-full group hover:scale-105">
-                  <div className="flex flex-wrap items-start justify-between mb-4">
-                    <div>
-                      <h3 className="font-display text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                        {exp.title}
-                      </h3>
-                      <h4 className="text-xl text-cyan-400 font-semibold mb-2">{exp.company}</h4>
-                    </div>
-                    <div className="flex flex-col items-end space-y-2">
-                      <div className="flex items-center space-x-2 text-gray-400 text-sm">
+        <div className="space-y-6 md:space-y-8">
+          {experiences.map((exp, index) => (
+            <div
+              key={index}
+              className={`glass rounded-xl p-6 md:p-8 hover:glow transition-all duration-500 cursor-pointer ${
+                isVisible ? 'stagger-in animate' : 'stagger-in'
+              }`}
+              style={{ animationDelay: `${index * 0.2}s` }}
+              onClick={() => setSelectedExperience(index)}
+            >
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+                <div className="flex items-start space-x-4 mb-4 lg:mb-0">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1">
+                      {exp.title}
+                    </h3>
+                    <p className="text-blue-400 font-semibold text-lg mb-2">{exp.company}</p>
+                    <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-400">
+                      <div className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{exp.period}</span>
+                        <span>{exp.duration}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-gray-400 text-sm">
+                      <div className="flex items-center space-x-1">
                         <MapPin className="w-4 h-4" />
                         <span>{exp.location}</span>
                       </div>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${exp.color} text-white`}>
-                        {exp.type}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <p className="text-gray-300 mb-6 leading-relaxed">{exp.description}</p>
-                  
-                  <div className="mb-6">
-                    <h5 className="text-white font-semibold mb-3 flex items-center">
-                      <TrendingUp className="w-4 h-4 mr-2 text-cyan-400" />
-                      Key Achievements
-                    </h5>
-                    <ul className="space-y-2">
-                      {exp.achievements.slice(0, 2).map((achievement, achIndex) => <li key={achIndex} className="text-gray-400 text-sm flex items-start">
-                          <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0" />
-                          {achievement}
-                        </li>)}
-                    </ul>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.slice(0, 3).map((tech, techIndex) => <span key={techIndex} className="glass px-3 py-1 rounded-full text-xs text-cyan-400 border border-cyan-500/30">
-                          {tech}
-                        </span>)}
-                      {exp.technologies.length > 3 && <span className="text-xs text-gray-500">+{exp.technologies.length - 3} more</span>}
-                    </div>
-                    <div className="flex items-center space-x-2 text-cyan-400 group-hover:text-blue-400 transition-colors">
-                      <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm font-medium">View Details</span>
                     </div>
                   </div>
                 </div>
-              </div>)}
-          </div>
+                <div className="flex items-center space-x-3">
+                  <span className="glass px-3 py-1 rounded-full text-sm text-blue-400">
+                    {exp.type}
+                  </span>
+                  <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors">
+                    <span>View Details</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </span>
+                </div>
+              </div>
+              
+              <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                {exp.description}
+              </p>
+            </div>
+          ))}
         </div>
+
+        {/* Experience Modal */}
+        {selectedExperience !== null && (
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6">
+            <div className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl">
+              <div className="p-6 md:p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <div>
+                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
+                      {experiences[selectedExperience].title}
+                    </h3>
+                    <p className="text-blue-400 font-semibold text-lg">
+                      {experiences[selectedExperience].company}
+                    </p>
+                  </div>
+                  <button 
+                    onClick={() => setSelectedExperience(null)}
+                    className="text-gray-400 hover:text-white text-2xl"
+                  >
+                    ×
+                  </button>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mb-6 text-gray-400">
+                  <div className="flex items-center space-x-2">
+                    <Calendar className="w-5 h-5" />
+                    <span>{experiences[selectedExperience].duration}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <MapPin className="w-5 h-5" />
+                    <span>{experiences[selectedExperience].location}</span>
+                  </div>
+                  <span className="glass px-3 py-1 rounded-full text-sm text-blue-400 w-fit">
+                    {experiences[selectedExperience].type}
+                  </span>
+                </div>
+                
+                <div className="mb-8">
+                  <h4 className="text-xl font-bold text-white mb-4">Overview</h4>
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                    {experiences[selectedExperience].details}
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="text-xl font-bold text-white mb-4">Key Achievements</h4>
+                  <ul className="space-y-3">
+                    {experiences[selectedExperience].achievements.map((achievement, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-300 text-sm md:text-base">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Experience;
