@@ -24,9 +24,11 @@ const Hero = () => {
           {/* Profile Image */}
           <div className="mb-6 md:mb-8">
             <div className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 p-1 glow-pulse">
-              <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                <span className="text-2xl md:text-3xl font-bold text-white">ZS</span>
-              </div>
+              <img 
+                src="/lovable-uploads/81378f2f-63fe-43cc-83e6-02e621d23bd4.png" 
+                alt="Zian Rajeshkumar Surani"
+                className="w-full h-full rounded-full object-cover"
+              />
             </div>
           </div>
 

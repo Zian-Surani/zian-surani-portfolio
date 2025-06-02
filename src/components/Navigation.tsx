@@ -53,8 +53,15 @@ const Navigation = () => {
         scrolled ? 'bg-black/20 backdrop-blur-md border-b border-cyan-500/20' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="font-display text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-            ZS
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/d83ac73a-c4f5-4483-bd8b-6f958e474c26.png" 
+              alt="ZS Logo" 
+              className="w-8 h-8 md:w-10 md:h-10"
+            />
+            <div className="font-display text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Zian Surani
+            </div>
           </div>
           <button className="glass px-6 py-3 rounded-xl text-sm font-medium hover:glow transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400">
             Download CV
