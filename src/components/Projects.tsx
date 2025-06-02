@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Github, ExternalLink, Code, Smartphone, Globe, Calculator, Timer, Hash, Gamepad2, Building, ChefHat, MessageSquare, Leaf } from 'lucide-react';
 
 const Projects = () => {
