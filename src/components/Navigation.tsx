@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Home, User, Briefcase, Award, Code, Rocket, Mail, Zap } from 'lucide-react';
+import { Home, User, Briefcase, Award, Code, Rocket, Mail, Zap, PersonStanding } from 'lucide-react';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -13,7 +12,7 @@ const Navigation = () => {
     { name: 'Experience', href: '#experience', icon: Briefcase },
     { name: 'Research', href: '#research', icon: Zap },
     { name: 'Startup', href: '#startup', icon: Rocket },
-    { name: 'Achievements', href: '#achievements', icon: Award },
+    { name: 'Achievements', href: '#achievements', icon: PersonStanding },
     { name: 'Certifications', href: '#certifications', icon: Award },
     { name: 'Contact', href: '#contact', icon: Mail }
   ];
@@ -64,7 +63,7 @@ const Navigation = () => {
               Zian Surani
             </div>
           </div>
-          <button className="glass px-6 py-3 rounded-xl text-sm font-medium hover:glow transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400">
+          <button className="glass px-6 py-3 rounded-xl text-sm font-medium text-white hover:glow transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400">
             Download CV
           </button>
         </div>
