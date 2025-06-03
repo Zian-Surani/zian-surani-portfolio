@@ -33,7 +33,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Store in Supabase
+      // Store in Supabase database first
       const { error: dbError } = await supabase
         .from('contact_messages')
         .insert([
@@ -48,18 +48,39 @@ const Contact = () => {
         throw dbError;
       }
 
-      // Send email notification
-      const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message
-        }
-      });
+      console.log("Message saved to database successfully");
 
-      if (emailError) {
-        console.error('Email error:', emailError);
-        // Don't throw here as the message was saved to DB
+      // Try to send email notification
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
+          body: {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          }
+        });
+
+        if (emailError) {
+          console.error('Email error:', emailError);
+          // Email failed, try SMS notification as fallback
+          try {
+            await supabase.functions.invoke('send-sms-notification', {
+              body: {
+                name: formData.name,
+                email: formData.email,
+                message: formData.message
+              }
+            });
+            console.log("SMS notification sent as fallback");
+          } catch (smsError) {
+            console.error('SMS notification also failed:', smsError);
+          }
+        } else {
+          console.log("Email sent successfully");
+        }
+      } catch (notificationError) {
+        console.error('All notification methods failed:', notificationError);
+        // Still continue as the message was saved to database
       }
 
       setIsSubmitted(true);
