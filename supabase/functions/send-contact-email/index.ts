@@ -1,8 +1,5 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
-
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -27,24 +24,50 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Received contact message:", { name, email, message });
 
-    const emailResponse = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["zian.surani@gmail.com"],
-      subject: `New Contact Message from ${name}`,
-      html: `
-        <h2>New Contact Message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-        <hr>
-        <p><small>This message was sent from your portfolio website.</small></p>
-      `,
+    // Send email using Gmail API
+    const gmailApiKey = Deno.env.get("GMAIL_API_KEY");
+    
+    if (!gmailApiKey) {
+      throw new Error("Gmail API key not configured");
+    }
+
+    // Prepare email content
+    const emailContent = {
+      raw: btoa(
+        `From: Portfolio Contact <noreply@gmail.com>\r\n` +
+        `To: zian.surani@gmail.com\r\n` +
+        `Subject: New Contact Message from ${name}\r\n` +
+        `Content-Type: text/html; charset=utf-8\r\n\r\n` +
+        `<h2>New Contact Message from Your Portfolio</h2>\r\n` +
+        `<p><strong>Name:</strong> ${name}</p>\r\n` +
+        `<p><strong>Email:</strong> ${email}</p>\r\n` +
+        `<p><strong>Message:</strong></p>\r\n` +
+        `<p>${message.replace(/\n/g, '<br>')}</p>\r\n` +
+        `<hr>\r\n` +
+        `<p><small>This message was sent from your portfolio website contact form.</small></p>`
+      ).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
+    };
+
+    // Send email via Gmail API
+    const gmailResponse = await fetch(`https://gmail.googleapis.com/gmail/v1/users/me/messages/send?key=${gmailApiKey}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${gmailApiKey}`,
+      },
+      body: JSON.stringify(emailContent),
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    if (!gmailResponse.ok) {
+      const errorText = await gmailResponse.text();
+      console.error("Gmail API error:", errorText);
+      throw new Error(`Gmail API error: ${gmailResponse.status}`);
+    }
 
-    return new Response(JSON.stringify({ success: true, emailResponse }), {
+    const gmailResult = await gmailResponse.json();
+    console.log("Email sent successfully via Gmail API:", gmailResult);
+
+    return new Response(JSON.stringify({ success: true, gmailResult }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",

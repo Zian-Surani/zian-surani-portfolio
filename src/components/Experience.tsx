@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink, Briefcase, GraduationCap } from 'lucide-react';
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,63 +9,109 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Research Scholar",
-      company: "Nirma University",
-      location: "Ahmedabad, Gujarat",
-      duration: "2023 - Present",
-      type: "Academic Research",
-      description: "Leading cutting-edge research in AI and machine learning with focus on neuromorphic computing and sustainable AI systems.",
-      details: "As a Research Scholar at Nirma University, I have been at the forefront of artificial intelligence research, specializing in neuromorphic computing and energy-efficient AI systems. My research work includes developing novel spiking neural networks for low-power computation, investigating blockchain-based decentralized AI training methods, and advancing sustainable machine learning practices. I have collaborated with international research teams, published multiple papers in peer-reviewed journals, and presented findings at prestigious conferences. My work contributes to the development of next-generation AI systems that are both powerful and environmentally responsible.",
+      title: "B.Tech in Computer Science and Engineering (AI & ML)",
+      company: "SRM Institute of Science and Technology, Tiruchirappalli",
+      location: "Tiruchirappalli, Tamil Nadu",
+      duration: "Aug 2023 – Present",
+      type: "Education",
+      cgpa: "9.7",
+      description: "Pursuing Bachelor of Technology in Computer Science and Engineering with specialization in Artificial Intelligence and Machine Learning. Maintaining exceptional academic performance with CGPA 9.7.",
+      details: "Currently pursuing B.Tech in Computer Science and Engineering with specialization in AI & ML at SRM Institute of Science and Technology, Tiruchirappalli. The program focuses on advanced topics in artificial intelligence, machine learning, deep learning, neural networks, and their practical applications. Maintaining an outstanding CGPA of 9.7, demonstrating consistent academic excellence and deep understanding of complex AI/ML concepts. The curriculum includes hands-on experience with cutting-edge technologies, research methodologies, and industry-relevant projects that prepare students for leadership roles in the AI revolution.",
       achievements: [
-        "Published research on Neuromorphic Computing using SNNs",
-        "Developed energy-efficient AI computation models",
-        "Collaborated on blockchain-enabled AI training systems",
-        "Presented research at international conferences"
+        "Maintaining exceptional CGPA of 9.7",
+        "Specializing in AI & ML technologies",
+        "Active participation in research projects",
+        "Leadership roles in student organizations"
       ]
     },
     {
-      title: "AI/ML Engineering Intern",
-      company: "TechVantage Solutions",
+      title: "AI and Automation Intern",
+      company: "National Institute of Technology, Tiruchirappalli",
+      location: "Tiruchirappalli, Tamil Nadu",
+      duration: "Jun 2025 – Jul 2025",
+      type: "Research Internship",
+      description: "Contributing to AI and robotics research in industrial automation, developing simulation tools and automation logic for testbeds.",
+      details: "Engaged in cutting-edge research at NIT Tiruchirappalli, focusing on AI and robotics applications in industrial automation. Contributed to the development of sophisticated simulation tools and automation logic for experimental testbeds. Actively participated in collaborative research projects exploring reinforcement learning algorithms and advanced control systems. This experience provided deep insights into the practical applications of AI in industrial settings and the development of intelligent automation solutions that can revolutionize manufacturing and production processes.",
+      achievements: [
+        "Contributed to AI and robotics research in industrial automation",
+        "Developed simulation tools and automation logic for testbeds",
+        "Engaged in collaborative research on reinforcement learning",
+        "Worked on advanced control systems development"
+      ]
+    },
+    {
+      title: "AI Research Engineer Intern",
+      company: "Remote CTO",
       location: "Remote",
-      duration: "2023 - 2024",
-      type: "Industry Experience",
-      description: "Developed and deployed machine learning models for enterprise clients, focusing on computer vision and natural language processing applications.",
-      details: "During my internship at TechVantage Solutions, I gained hands-on experience in deploying AI solutions for real-world business challenges. I worked on developing computer vision systems for quality control in manufacturing, implemented natural language processing models for customer service automation, and optimized existing ML pipelines for better performance. My role involved collaborating with cross-functional teams, conducting data analysis, and ensuring the scalability and reliability of AI systems in production environments.",
+      duration: "Dec 2024 – Jan 2025",
+      type: "Industry Research",
+      description: "Conducted research on emerging AI technologies and optimized machine learning models for improved performance.",
+      details: "Worked as an AI Research Engineer Intern at Remote CTO, focusing on cutting-edge research in emerging AI technologies. Conducted comprehensive studies on the latest developments in artificial intelligence and their potential applications. Optimized machine learning models to achieve improved performance metrics and efficiency. Collaborated with cross-functional teams to integrate AI innovations into existing products and develop new AI-powered solutions. This role provided valuable experience in translating research findings into practical applications and working in a fast-paced, innovation-driven environment.",
       achievements: [
-        "Developed CV systems improving quality control by 35%",
-        "Implemented NLP models for automated customer service",
-        "Optimized ML pipelines reducing inference time by 40%",
-        "Contributed to 5+ client projects across different industries"
+        "Conducted research on emerging AI technologies",
+        "Optimized machine learning models for improved performance",
+        "Collaborated with cross-functional teams on AI integration",
+        "Contributed to AI innovation and product development"
       ]
     },
     {
-      title: "Technical Lead",
-      company: "University Innovation Cell",
-      location: "Nirma University",
-      duration: "2022 - 2023",
+      title: "Cybersecurity Virtual Intern",
+      company: "Palo Alto Networks (AICTE & EduSkills)",
+      location: "Virtual",
+      duration: "Jan 2025 – Mar 2025",
+      type: "Virtual Internship",
+      description: "Completed a 10-week virtual internship focusing on cybersecurity concepts and network defense strategies.",
+      details: "Successfully completed a comprehensive 10-week virtual internship program with Palo Alto Networks through AICTE & EduSkills partnership. The program focused intensively on cybersecurity concepts, network defense strategies, and modern security frameworks. Gained hands-on experience with real-world applications of cybersecurity practices, including threat detection, incident response, and security architecture design. The internship provided deep insights into enterprise-level security solutions and the latest trends in cybersecurity, preparing for the growing intersection of AI and cybersecurity.",
+      achievements: [
+        "Completed 10-week intensive cybersecurity program",
+        "Gained expertise in network defense strategies",
+        "Hands-on experience with real-world security applications",
+        "Understanding of enterprise security frameworks"
+      ]
+    },
+    {
+      title: "Android Developer Virtual Intern",
+      company: "Google for Developers (AICTE & EduSkills)",
+      location: "Virtual",
+      duration: "Oct 2024 – Dec 2024",
+      type: "Virtual Internship",
+      description: "Completed a 10-week virtual internship in Android development, achieving Grade 'O' (Outstanding) with 90-100% performance.",
+      details: "Successfully completed a rigorous 10-week virtual internship program in Android development through Google for Developers in partnership with AICTE & EduSkills. Achieved an Outstanding Grade 'O', reflecting exceptional performance in the 90-100% range. The program covered comprehensive Android development concepts, including modern Android architecture, Kotlin programming, UI/UX design principles, and mobile app optimization. Enhanced practical skills in mobile app development through hands-on projects and real-world application scenarios, gaining expertise that bridges mobile development with AI/ML applications.",
+      achievements: [
+        "Achieved Grade 'O' (Outstanding) - 90-100% performance",
+        "Completed comprehensive 10-week Android development program",
+        "Enhanced mobile app development skills",
+        "Gained expertise in modern Android architecture and Kotlin"
+      ]
+    },
+    {
+      title: "President",
+      company: "Entrepreneurship Development Cell, SRM IST",
+      location: "Tiruchirappalli, Tamil Nadu",
+      duration: "Jul 2023 – Present",
       type: "Leadership Role",
-      description: "Led technical initiatives and innovation projects, mentoring students in emerging technologies and research methodologies.",
-      details: "As Technical Lead at the University Innovation Cell, I spearheaded multiple innovation initiatives and mentored fellow students in cutting-edge technologies. I organized technical workshops, hackathons, and research seminars, fostering a culture of innovation within the university. My responsibilities included evaluating project proposals, providing technical guidance for student-led research projects, and establishing partnerships with industry professionals. I also coordinated with faculty members to bridge the gap between academic learning and practical implementation.",
+      description: "Spearheading strategic direction and institutional entrepreneurship policy, organizing high-impact events and mentoring student startups.",
+      details: "Leading the Entrepreneurship Development Cell at SRM Institute of Science and Technology as President, responsible for spearheading strategic direction and shaping institutional entrepreneurship policy. Organized numerous high-impact events, boot camps, and investor/startup meetups that have significantly enhanced the entrepreneurial ecosystem on campus. Actively mentor budding student-led startups, providing guidance on business development, strategy, and growth. Established valuable connections with incubators and accelerators, creating pathways for student ventures to access funding and mentorship. This leadership role has developed strong organizational, strategic planning, and team management skills while fostering innovation and entrepreneurship among peers.",
       achievements: [
-        "Led 10+ innovation projects and workshops",
-        "Mentored 50+ students in AI/ML technologies",
-        "Organized university's first AI research symposium",
-        "Established industry partnerships for student projects"
+        "Spearheaded strategic direction and entrepreneurship policy",
+        "Organized high-impact events, boot camps, and investor meetups",
+        "Mentored multiple student-led startups",
+        "Established connections with incubators and accelerators"
       ]
     },
     {
-      title: "Freelance AI Developer",
-      company: "Independent",
-      location: "Remote",
-      duration: "2022 - Present",
-      type: "Freelance",
-      description: "Providing AI consulting and development services to startups and enterprises, specializing in custom ML solutions.",
-      details: "As a Freelance AI Developer, I have worked with diverse clients ranging from early-stage startups to established enterprises, delivering custom artificial intelligence solutions tailored to their specific needs. My services include developing machine learning models, implementing computer vision systems, creating chatbots and conversational AI, and providing AI strategy consulting. I have successfully completed projects in healthcare, e-commerce, agriculture, and fintech sectors, consistently delivering high-quality solutions that drive business value and innovation.",
+      title: "NGO Volunteer – Elderly Digital Inclusion Program",
+      company: "Independent NGO Work",
+      location: "Ahmedabad, Gujarat",
+      duration: "Jan 2022 – Present",
+      type: "Volunteer Work",
+      description: "Developing innovative gamified tools and mobile apps to improve cognitive engagement for the elderly.",
+      details: "Actively volunteering in the Elderly Digital Inclusion Program, focusing on bridging the digital divide for senior citizens. Developed innovative gamified tools and mobile applications specifically designed to improve cognitive engagement and mental wellness for elderly individuals. Worked closely with various NGOs to design interactive platforms that promote mental health and cognitive stimulation through technology. Conducted numerous workshops to teach digital literacy to seniors, using specially designed user-friendly interfaces that accommodate age-related accessibility needs. This volunteer work combines technical skills with social impact, demonstrating commitment to using technology for positive social change and community development.",
       achievements: [
-        "Completed 20+ successful AI projects",
-        "Worked with clients across 5 different industries",
-        "Delivered solutions improving efficiency by 50%+",
-        "Maintained 100% client satisfaction rate"
+        "Developed gamified tools for elderly cognitive engagement",
+        "Created mobile apps promoting mental wellness",
+        "Designed interactive platforms for NGO partnerships",
+        "Conducted digital literacy workshops for seniors"
       ]
     }
   ];
@@ -87,6 +133,15 @@ const Experience = () => {
     return () => observer.disconnect();
   }, []);
 
+  const getIconForType = (type: string) => {
+    switch (type) {
+      case 'Education':
+        return GraduationCap;
+      default:
+        return Briefcase;
+    }
+  };
+
   return (
     <section id="experience" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
@@ -95,58 +150,66 @@ const Experience = () => {
             Professional Journey
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
-            From academic research to industry applications, my journey spans diverse domains in AI and machine learning.
+            From academic excellence to industry experience, my journey spans diverse domains in AI, cybersecurity, and entrepreneurship.
           </p>
         </div>
 
         <div className="space-y-6 md:space-y-8">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className={`glass rounded-xl p-6 md:p-8 hover:glow transition-all duration-500 cursor-pointer ${
-                isVisible ? 'stagger-in animate' : 'stagger-in'
-              }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-              onClick={() => setSelectedExperience(index)}
-            >
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                <div className="flex items-start space-x-4 mb-4 lg:mb-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1">
-                      {exp.title}
-                    </h3>
-                    <p className="text-blue-400 font-semibold text-lg mb-2">{exp.company}</p>
-                    <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-400">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{exp.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <MapPin className="w-4 h-4" />
-                        <span>{exp.location}</span>
+          {experiences.map((exp, index) => {
+            const IconComponent = getIconForType(exp.type);
+            return (
+              <div
+                key={index}
+                className={`glass rounded-xl p-6 md:p-8 hover:glow transition-all duration-500 cursor-pointer ${
+                  isVisible ? 'stagger-in animate' : 'stagger-in'
+                }`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+                onClick={() => setSelectedExperience(index)}
+              >
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+                  <div className="flex items-start space-x-4 mb-4 lg:mb-0">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1">
+                        {exp.title}
+                      </h3>
+                      <p className="text-blue-400 font-semibold text-lg mb-2">{exp.company}</p>
+                      <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-400">
+                        <div className="flex items-center space-x-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{exp.duration}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <MapPin className="w-4 h-4" />
+                          <span>{exp.location}</span>
+                        </div>
+                        {exp.cgpa && (
+                          <div className="flex items-center space-x-1">
+                            <span className="text-green-400 font-semibold">CGPA: {exp.cgpa}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="glass px-3 py-1 rounded-full text-sm text-blue-400">
+                      {exp.type}
+                    </span>
+                    <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors">
+                      <span>View Details</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <span className="glass px-3 py-1 rounded-full text-sm text-blue-400">
-                    {exp.type}
-                  </span>
-                  <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors">
-                    <span>View Details</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </span>
-                </div>
+                
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                  {exp.description}
+                </p>
               </div>
-              
-              <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                {exp.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Experience Modal */}
@@ -183,6 +246,11 @@ const Experience = () => {
                   <span className="glass px-3 py-1 rounded-full text-sm text-blue-400 w-fit">
                     {experiences[selectedExperience].type}
                   </span>
+                  {experiences[selectedExperience].cgpa && (
+                    <span className="text-green-400 font-semibold">
+                      CGPA: {experiences[selectedExperience].cgpa}
+                    </span>
+                  )}
                 </div>
                 
                 <div className="mb-8">
