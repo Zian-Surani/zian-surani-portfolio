@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Home, User, Briefcase, Award, Code, Rocket, Mail, Zap, Certificate } from 'lucide-react';
+import { Home, User, Briefcase, Award, Code, Rocket, Mail, Zap } from 'lucide-react';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -14,7 +14,7 @@ const Navigation = () => {
     { name: 'Research', href: '#research', icon: Zap },
     { name: 'Startup', href: '#startup', icon: Rocket },
     { name: 'Achievements', href: '#achievements', icon: Award },
-    { name: 'Certifications', href: '#certifications', icon: Certificate },
+    { name: 'Certifications', href: '#certifications', icon: Award },
     { name: 'Contact', href: '#contact', icon: Mail }
   ];
 
