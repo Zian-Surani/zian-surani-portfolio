@@ -13,7 +13,8 @@ const Certifications = () => {
       date: "2024",
       logo: "🔶",
       category: "Cloud Computing",
-      description: "Foundational understanding of AWS Cloud services and architecture"
+      description: "Foundational understanding of AWS Cloud services and architecture",
+      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
     },
     {
       name: "Google Cloud Digital Leader",
@@ -21,7 +22,17 @@ const Certifications = () => {
       date: "2024",
       logo: "🌐",
       category: "Cloud Computing",
-      description: "Digital transformation with Google Cloud technologies"
+      description: "Digital transformation with Google Cloud technologies",
+      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
+    },
+    {
+      name: "Google Developer Profile",
+      issuer: "Google",
+      date: "2024",
+      logo: "🎯",
+      category: "Development",
+      description: "Google Developer certification and profile verification",
+      link: "https://g.dev/ZianSurani_SRM_Trichy"
     },
     {
       name: "Microsoft Azure Fundamentals",
@@ -29,7 +40,8 @@ const Certifications = () => {
       date: "2024",
       logo: "☁️",
       category: "Cloud Computing",
-      description: "Core Azure services, solutions, and management tools"
+      description: "Core Azure services, solutions, and management tools",
+      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
     },
     {
       name: "Machine Learning Specialization",
@@ -37,7 +49,8 @@ const Certifications = () => {
       date: "2024",
       logo: "🧠",
       category: "AI & ML",
-      description: "Comprehensive machine learning algorithms and applications"
+      description: "Comprehensive machine learning algorithms and applications",
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Deep Learning Specialization",
@@ -45,7 +58,8 @@ const Certifications = () => {
       date: "2024",
       logo: "🤖",
       category: "AI & ML",
-      description: "Neural networks, CNNs, RNNs, and deep learning frameworks"
+      description: "Neural networks, CNNs, RNNs, and deep learning frameworks",
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "TensorFlow Developer Certificate",
@@ -53,7 +67,8 @@ const Certifications = () => {
       date: "2024",
       logo: "⚡",
       category: "AI & ML",
-      description: "Building and training neural networks using TensorFlow"
+      description: "Building and training neural networks using TensorFlow",
+      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
     },
     {
       name: "Python for Data Science",
@@ -61,7 +76,8 @@ const Certifications = () => {
       date: "2024",
       logo: "🐍",
       category: "Programming",
-      description: "Data analysis and visualization using Python libraries"
+      description: "Data analysis and visualization using Python libraries",
+      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
     },
     {
       name: "React Developer Certification",
@@ -69,7 +85,8 @@ const Certifications = () => {
       date: "2024",
       logo: "⚛️",
       category: "Web Development",
-      description: "Building modern web applications with React"
+      description: "Building modern web applications with React",
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Cybersecurity Fundamentals",
@@ -77,7 +94,8 @@ const Certifications = () => {
       date: "2024",
       logo: "🔐",
       category: "Security",
-      description: "Network security principles and threat management"
+      description: "Network security principles and threat management",
+      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
     },
     {
       name: "Data Structures & Algorithms",
@@ -85,7 +103,8 @@ const Certifications = () => {
       date: "2024",
       logo: "📊",
       category: "Computer Science",
-      description: "Advanced algorithms and data structure optimization"
+      description: "Advanced algorithms and data structure optimization",
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "DevOps Foundation",
@@ -93,7 +112,8 @@ const Certifications = () => {
       date: "2024",
       logo: "🔧",
       category: "DevOps",
-      description: "CI/CD pipelines and containerization technologies"
+      description: "CI/CD pipelines and containerization technologies",
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Blockchain Fundamentals",
@@ -101,7 +121,8 @@ const Certifications = () => {
       date: "2024",
       logo: "⛓️",
       category: "Blockchain",
-      description: "Distributed systems and cryptocurrency technologies"
+      description: "Distributed systems and cryptocurrency technologies",
+      link: "https://www.linkedin.com/in/zian-surani/"
     }
   ];
 
@@ -123,6 +144,10 @@ const Certifications = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const handleCertificateClick = (link: string) => {
+    window.open(link, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section id="certifications" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6 relative z-10">
@@ -157,7 +182,8 @@ const Certifications = () => {
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className={`glass rounded-xl p-6 hover:glow transition-all duration-500 transform hover:scale-105 border border-white/10 hover:border-cyan-500/50 group ${
+              onClick={() => handleCertificateClick(cert.link)}
+              className={`glass rounded-xl p-6 hover:glow transition-all duration-500 transform hover:scale-105 border border-white/10 hover:border-cyan-500/50 group cursor-pointer ${
                 isVisible ? 'stagger-in animate' : 'stagger-in'
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
@@ -190,8 +216,8 @@ const Certifications = () => {
 
               <div className="flex items-center text-cyan-400 text-sm group-hover:text-white transition-colors duration-300">
                 <Award className="w-4 h-4 mr-2" />
-                <span className="font-medium">Certified</span>
-                <ExternalLink className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="font-medium">View Certificate</span>
+                <ExternalLink className="w-3 h-3 ml-auto opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
           ))}
