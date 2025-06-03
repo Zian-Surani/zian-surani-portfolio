@@ -57,6 +57,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 flex items-center space-x-2 w-full sm:w-auto justify-center"
+              style={{ color: 'white' }}
             >
               <Download className="w-5 h-5 group-hover:animate-bounce" />
               <span>Download CV</span>
