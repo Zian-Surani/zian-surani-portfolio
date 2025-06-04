@@ -40,18 +40,31 @@ A modern, animation-rich personal portfolio built with **React.js**. This projec
 ## 📂 Folder Structure
 zian-surani-stellar-forge/
 │
+
 ├── public/ # Static assets and favicon
+
 ├── src/
+
 │ ├── assets/ # Images and icons
+
 │ ├── components/ # Reusable UI components
+
 │ ├── pages/ # Page-level components (Home, About, etc.)
+
 │ ├── styles/ # Global and modular stylesheets
+
 │ ├── App.jsx # Root component
+
 │ └── main.jsx # Entry point
+
 ├── .gitignore
+
 ├── package.json
+
 ├── README.md
+
 └── vite.config.js (if applicable)
+
 
 ---
 
@@ -71,8 +84,7 @@ Make sure you have the following installed:
    cd zian-surani-stellar-forge
 
 2. Install Dependencies
-   '''bash
-   npm install
+
 3. Develop the server
 
 📌 Future Enhancements (Planned)
