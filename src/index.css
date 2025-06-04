@@ -43,17 +43,60 @@
     /* Ensure text is visible on mobile */
     h1, h2, h3, h4, h5, h6 {
       line-height: 1.2;
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     }
 
     /* Better spacing for mobile */
     .glass {
-      @apply backdrop-blur-md bg-white/10;
+      @apply backdrop-blur-md;
+      background: rgba(0, 0, 0, 0.7) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
 
     /* Mobile-specific z-index fixes */
     section {
       position: relative;
       z-index: 1;
+    }
+
+    /* Force text visibility on mobile */
+    .text-white {
+      color: #ffffff !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .text-gray-300 {
+      color: #e5e7eb !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .text-gray-400 {
+      color: #d1d5db !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .text-blue-400 {
+      color: #60a5fa !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    /* Modal improvements for mobile */
+    .fixed.inset-0 {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 9999 !important;
+      background: rgba(0, 0, 0, 0.95) !important;
+    }
+
+    /* Modal content visibility */
+    .fixed .glass {
+      background: rgba(0, 0, 0, 0.9) !important;
+      backdrop-filter: blur(20px) !important;
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
     }
   }
 }
@@ -141,7 +184,30 @@
     background: linear-gradient(90deg, white, transparent);
     transform: translateX(-50px);
   }
+
+  /* Mobile modal z-index and visibility fixes */
+  @media (max-width: 768px) {
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.95) !important;
+      backdrop-filter: blur(10px) !important;
+      z-index: 9998 !important;
+    }
+
+    .modal-content {
+      background: rgba(0, 0, 0, 0.9) !important;
+      backdrop-filter: blur(20px) !important;
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+      z-index: 9999 !important;
+    }
+
+    .modal-text {
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    }
+  }
 }
+
+/* ... keep existing code (keyframes and animations) */
 
 @keyframes glow-pulse {
   from {
@@ -226,27 +292,31 @@
 
   /* Better glass effect on mobile */
   .glass {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   /* Fix text visibility issues */
   .text-white {
     color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
   }
 
   .text-gray-300 {
-    color: #d1d5db !important;
+    color: #e5e7eb !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
   }
 
   .text-gray-400 {
-    color: #9ca3af !important;
+    color: #d1d5db !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
   }
 
   .text-blue-400 {
     color: #60a5fa !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
   }
 
   /* Ensure backgrounds don't interfere with text */
@@ -263,7 +333,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 50;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95) !important;
   }
 }
 
@@ -308,5 +379,14 @@
 
   .space-y-8 > * + * {
     margin-top: 2rem;
+  }
+
+  /* Force high contrast text on small screens */
+  * {
+    color: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    color: inherit !important;
   }
 }
