@@ -143,7 +143,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6">
+    <section id="experience" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-12 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
@@ -160,30 +160,30 @@ const Experience = () => {
             return (
               <div
                 key={index}
-                className={`glass rounded-xl p-6 md:p-8 hover:glow transition-all duration-500 cursor-pointer ${
+                className={`glass rounded-xl p-4 md:p-8 hover:glow transition-all duration-500 cursor-pointer border border-white/20 ${
                   isVisible ? 'stagger-in animate' : 'stagger-in'
                 }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
                 onClick={() => setSelectedExperience(index)}
               >
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                  <div className="flex items-start space-x-4 mb-4 lg:mb-0">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-6 h-6 text-white" />
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-start space-x-3 md:space-x-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <div className="min-w-0">
-                      <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-display text-lg md:text-2xl font-bold text-white mb-1 break-words">
                         {exp.title}
                       </h3>
-                      <p className="text-blue-400 font-semibold text-lg mb-2">{exp.company}</p>
-                      <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-400">
+                      <p className="text-blue-400 font-semibold text-base md:text-lg mb-2 break-words">{exp.company}</p>
+                      <div className="flex flex-col space-y-2 text-sm text-gray-400">
                         <div className="flex items-center space-x-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{exp.duration}</span>
+                          <Calendar className="w-4 h-4 flex-shrink-0" />
+                          <span className="break-words">{exp.duration}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <MapPin className="w-4 h-4" />
-                          <span>{exp.location}</span>
+                          <MapPin className="w-4 h-4 flex-shrink-0" />
+                          <span className="break-words">{exp.location}</span>
                         </div>
                         {exp.cgpa && (
                           <div className="flex items-center space-x-1">
@@ -193,20 +193,22 @@ const Experience = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="glass px-3 py-1 rounded-full text-sm text-blue-400">
-                      {exp.type}
-                    </span>
-                    <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors">
-                      <span>View Details</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </span>
+                  
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
+                    <p className="text-gray-300 leading-relaxed text-sm md:text-base flex-1">
+                      {exp.description}
+                    </p>
+                    <div className="flex items-center justify-between sm:justify-end space-x-3 flex-shrink-0">
+                      <span className="glass px-3 py-1 rounded-full text-xs md:text-sm text-blue-400 border border-blue-400/30">
+                        {exp.type}
+                      </span>
+                      <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors text-sm">
+                        <span>View Details</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
                 </div>
-                
-                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                  {exp.description}
-                </p>
               </div>
             );
           })}
@@ -215,58 +217,60 @@ const Experience = () => {
         {/* Experience Modal */}
         {selectedExperience !== null && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6">
-            <div className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl">
+            <div className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20">
               <div className="p-6 md:p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex-1 pr-4">
+                    <h3 className="font-display text-xl md:text-3xl font-bold text-white mb-2 break-words">
                       {experiences[selectedExperience].title}
                     </h3>
-                    <p className="text-blue-400 font-semibold text-lg">
+                    <p className="text-blue-400 font-semibold text-base md:text-lg break-words">
                       {experiences[selectedExperience].company}
                     </p>
                   </div>
                   <button 
                     onClick={() => setSelectedExperience(null)}
-                    className="text-gray-400 hover:text-white text-2xl"
+                    className="text-gray-400 hover:text-white text-2xl flex-shrink-0 w-8 h-8 flex items-center justify-center"
                   >
                     ×
                   </button>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mb-6 text-gray-400">
+                <div className="flex flex-col space-y-2 mb-6 text-gray-400">
                   <div className="flex items-center space-x-2">
-                    <Calendar className="w-5 h-5" />
-                    <span>{experiences[selectedExperience].duration}</span>
+                    <Calendar className="w-5 h-5 flex-shrink-0" />
+                    <span className="break-words">{experiences[selectedExperience].duration}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <MapPin className="w-5 h-5" />
-                    <span>{experiences[selectedExperience].location}</span>
+                    <MapPin className="w-5 h-5 flex-shrink-0" />
+                    <span className="break-words">{experiences[selectedExperience].location}</span>
                   </div>
-                  <span className="glass px-3 py-1 rounded-full text-sm text-blue-400 w-fit">
-                    {experiences[selectedExperience].type}
-                  </span>
-                  {experiences[selectedExperience].cgpa && (
-                    <span className="text-green-400 font-semibold">
-                      CGPA: {experiences[selectedExperience].cgpa}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="glass px-3 py-1 rounded-full text-sm text-blue-400 border border-blue-400/30">
+                      {experiences[selectedExperience].type}
                     </span>
-                  )}
+                    {experiences[selectedExperience].cgpa && (
+                      <span className="text-green-400 font-semibold">
+                        CGPA: {experiences[selectedExperience].cgpa}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 
                 <div className="mb-8">
-                  <h4 className="text-xl font-bold text-white mb-4">Overview</h4>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-4">Overview</h4>
                   <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                     {experiences[selectedExperience].details}
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="text-xl font-bold text-white mb-4">Key Achievements</h4>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-4">Key Achievements</h4>
                   <ul className="space-y-3">
                     {experiences[selectedExperience].achievements.map((achievement, idx) => (
                       <li key={idx} className="flex items-start space-x-3">
                         <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-300 text-sm md:text-base">{achievement}</span>
+                        <span className="text-gray-300 text-sm md:text-base break-words">{achievement}</span>
                       </li>
                     ))}
                   </ul>
