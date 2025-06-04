@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Calendar, MapPin, ExternalLink, Briefcase, GraduationCap } from 'lucide-react';
 
@@ -123,7 +122,7 @@ const Experience = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -143,46 +142,46 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6 relative z-10">
+    <section id="experience" ref={sectionRef} className="py-8 md:py-20 px-3 md:px-6 relative z-10 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <div className={`text-center mb-12 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
+        <div className={`text-center mb-8 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
+          <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent px-2">
             Professional Journey
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
+          <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto px-2">
             From academic excellence to industry experience, my journey spans diverse domains in AI, cybersecurity, and entrepreneurship.
           </p>
         </div>
 
-        <div className="space-y-6 md:space-y-8">
+        <div className="space-y-4 md:space-y-8">
           {experiences.map((exp, index) => {
             const IconComponent = getIconForType(exp.type);
             return (
               <div
                 key={index}
-                className={`glass rounded-xl p-4 md:p-8 hover:glow transition-all duration-500 cursor-pointer border border-white/20 ${
+                className={`glass rounded-lg md:rounded-xl p-3 md:p-8 hover:glow transition-all duration-500 cursor-pointer border border-white/20 ${
                   isVisible ? 'stagger-in animate' : 'stagger-in'
                 }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
                 onClick={() => setSelectedExperience(index)}
               >
-                <div className="flex flex-col space-y-4">
-                  <div className="flex items-start space-x-3 md:space-x-4">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                <div className="flex flex-col space-y-3 md:space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-4 h-4 md:w-6 md:h-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-display text-lg md:text-2xl font-bold text-white mb-1 break-words">
+                      <h3 className="font-display text-base md:text-2xl font-bold text-white mb-1 break-words leading-tight">
                         {exp.title}
                       </h3>
-                      <p className="text-blue-400 font-semibold text-base md:text-lg mb-2 break-words">{exp.company}</p>
-                      <div className="flex flex-col space-y-2 text-sm text-gray-400">
+                      <p className="text-blue-400 font-semibold text-sm md:text-lg mb-2 break-words">{exp.company}</p>
+                      <div className="flex flex-col space-y-1 md:space-y-2 text-xs md:text-sm text-gray-400">
                         <div className="flex items-center space-x-1">
-                          <Calendar className="w-4 h-4 flex-shrink-0" />
+                          <Calendar className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                           <span className="break-words">{exp.duration}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <MapPin className="w-4 h-4 flex-shrink-0" />
+                          <MapPin className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                           <span className="break-words">{exp.location}</span>
                         </div>
                         {exp.cgpa && (
@@ -194,17 +193,17 @@ const Experience = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
-                    <p className="text-gray-300 leading-relaxed text-sm md:text-base flex-1">
+                  <div className="flex flex-col space-y-3">
+                    <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                       {exp.description}
                     </p>
-                    <div className="flex items-center justify-between sm:justify-end space-x-3 flex-shrink-0">
-                      <span className="glass px-3 py-1 rounded-full text-xs md:text-sm text-blue-400 border border-blue-400/30">
+                    <div className="flex items-center justify-between">
+                      <span className="glass px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm text-blue-400 border border-blue-400/30">
                         {exp.type}
                       </span>
-                      <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors text-sm">
+                      <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors text-xs md:text-sm">
                         <span>View Details</span>
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-3 h-3 md:w-4 md:h-4" />
                       </span>
                     </div>
                   </div>
@@ -216,60 +215,60 @@ const Experience = () => {
 
         {/* Experience Modal */}
         {selectedExperience !== null && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6">
-            <div className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20">
-              <div className="p-6 md:p-8">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex-1 pr-4">
-                    <h3 className="font-display text-xl md:text-3xl font-bold text-white mb-2 break-words">
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 md:p-6">
+            <div className="glass max-w-4xl w-full max-h-[95vh] md:max-h-[90vh] overflow-y-auto rounded-xl md:rounded-2xl border border-white/20">
+              <div className="p-4 md:p-8">
+                <div className="flex items-start justify-between mb-4 md:mb-6">
+                  <div className="flex-1 pr-2 md:pr-4">
+                    <h3 className="font-display text-lg md:text-3xl font-bold text-white mb-2 break-words leading-tight">
                       {experiences[selectedExperience].title}
                     </h3>
-                    <p className="text-blue-400 font-semibold text-base md:text-lg break-words">
+                    <p className="text-blue-400 font-semibold text-sm md:text-lg break-words">
                       {experiences[selectedExperience].company}
                     </p>
                   </div>
                   <button 
                     onClick={() => setSelectedExperience(null)}
-                    className="text-gray-400 hover:text-white text-2xl flex-shrink-0 w-8 h-8 flex items-center justify-center"
+                    className="text-gray-400 hover:text-white text-xl md:text-2xl flex-shrink-0 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center"
                   >
                     ×
                   </button>
                 </div>
                 
-                <div className="flex flex-col space-y-2 mb-6 text-gray-400">
+                <div className="flex flex-col space-y-1 md:space-y-2 mb-4 md:mb-6 text-gray-400 text-sm md:text-base">
                   <div className="flex items-center space-x-2">
-                    <Calendar className="w-5 h-5 flex-shrink-0" />
+                    <Calendar className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
                     <span className="break-words">{experiences[selectedExperience].duration}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <MapPin className="w-5 h-5 flex-shrink-0" />
+                    <MapPin className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
                     <span className="break-words">{experiences[selectedExperience].location}</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="glass px-3 py-1 rounded-full text-sm text-blue-400 border border-blue-400/30">
+                    <span className="glass px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm text-blue-400 border border-blue-400/30">
                       {experiences[selectedExperience].type}
                     </span>
                     {experiences[selectedExperience].cgpa && (
-                      <span className="text-green-400 font-semibold">
+                      <span className="text-green-400 font-semibold text-xs md:text-sm">
                         CGPA: {experiences[selectedExperience].cgpa}
                       </span>
                     )}
                   </div>
                 </div>
                 
-                <div className="mb-8">
-                  <h4 className="text-lg md:text-xl font-bold text-white mb-4">Overview</h4>
+                <div className="mb-6 md:mb-8">
+                  <h4 className="text-base md:text-xl font-bold text-white mb-3 md:mb-4">Overview</h4>
                   <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                     {experiences[selectedExperience].details}
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="text-lg md:text-xl font-bold text-white mb-4">Key Achievements</h4>
-                  <ul className="space-y-3">
+                  <h4 className="text-base md:text-xl font-bold text-white mb-3 md:mb-4">Key Achievements</h4>
+                  <ul className="space-y-2 md:space-y-3">
                     {experiences[selectedExperience].achievements.map((achievement, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <li key={idx} className="flex items-start space-x-2 md:space-x-3">
+                        <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-400 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></div>
                         <span className="text-gray-300 text-sm md:text-base break-words">{achievement}</span>
                       </li>
                     ))}

@@ -26,11 +26,35 @@
 
   /* Mobile optimization */
   section {
-    @apply pt-20 md:pt-0;
+    @apply pt-16 md:pt-0;
   }
 
   section:first-of-type {
     @apply pt-0;
+  }
+
+  /* Better mobile touch targets */
+  @media (max-width: 768px) {
+    button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Ensure text is visible on mobile */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.2;
+    }
+
+    /* Better spacing for mobile */
+    .glass {
+      @apply backdrop-blur-md bg-white/10;
+    }
+
+    /* Mobile-specific z-index fixes */
+    section {
+      position: relative;
+      z-index: 1;
+    }
   }
 }
 
@@ -181,6 +205,7 @@
   
   body {
     cursor: auto;
+    overflow-x: hidden;
   }
 
   /* Ensure content doesn't go under mobile navigation */
@@ -191,6 +216,54 @@
   /* Better spacing for mobile sections */
   section {
     scroll-margin-top: 100px;
+    min-height: auto;
+  }
+
+  /* Mobile text optimization */
+  .font-display {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Better glass effect on mobile */
+  .glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Fix text visibility issues */
+  .text-white {
+    color: #ffffff !important;
+  }
+
+  .text-gray-300 {
+    color: #d1d5db !important;
+  }
+
+  .text-gray-400 {
+    color: #9ca3af !important;
+  }
+
+  .text-blue-400 {
+    color: #60a5fa !important;
+  }
+
+  /* Ensure backgrounds don't interfere with text */
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Mobile modal improvements */
+  .fixed.inset-0 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
   }
 }
 
@@ -209,9 +282,31 @@
     min-height: 44px;
     min-width: 44px;
   }
+
+  /* Improve tap interactions */
+  .cursor-pointer {
+    cursor: pointer;
+  }
 }
 
 /* Improved z-index management */
 .z-30 { z-index: 30; }
 .z-40 { z-index: 40; }
 .z-50 { z-index: 50; }
+
+/* Additional mobile fixes */
+@media (max-width: 640px) {
+  .max-w-7xl {
+    max-width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+
+  .space-y-8 > * + * {
+    margin-top: 2rem;
+  }
+}
