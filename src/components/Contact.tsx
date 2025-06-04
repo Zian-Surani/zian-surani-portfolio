@@ -33,6 +33,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      console.log("Starting form submission...");
+      
       // Store in Supabase database first
       const { error: dbError } = await supabase
         .from('contact_messages')
@@ -45,14 +47,15 @@ const Contact = () => {
         ]);
 
       if (dbError) {
+        console.error('Database error:', dbError);
         throw dbError;
       }
 
       console.log("Message saved to database successfully");
 
-      // Try to send email notification
+      // Send email notification
       try {
-        const { error: emailError } = await supabase.functions.invoke('send-contact-email', {
+        const { data: emailData, error: emailError } = await supabase.functions.invoke('send-contact-email', {
           body: {
             name: formData.name,
             email: formData.email,
@@ -62,25 +65,53 @@ const Contact = () => {
 
         if (emailError) {
           console.error('Email error:', emailError);
-          // Email failed, try SMS notification as fallback
-          try {
-            await supabase.functions.invoke('send-sms-notification', {
-              body: {
-                name: formData.name,
-                email: formData.email,
-                message: formData.message
-              }
-            });
-            console.log("SMS notification sent as fallback");
-          } catch (smsError) {
-            console.error('SMS notification also failed:', smsError);
-          }
-        } else {
-          console.log("Email sent successfully");
+          throw emailError;
         }
-      } catch (notificationError) {
-        console.error('All notification methods failed:', notificationError);
-        // Still continue as the message was saved to database
+
+        console.log("Email sent successfully:", emailData);
+        
+        // Send SMS notification
+        try {
+          const { data: smsData, error: smsError } = await supabase.functions.invoke('send-sms-notification', {
+            body: {
+              name: formData.name,
+              email: formData.email,
+              message: formData.message
+            }
+          });
+
+          if (smsError) {
+            console.error('SMS error:', smsError);
+          } else {
+            console.log("SMS notification sent successfully:", smsData);
+          }
+        } catch (smsError) {
+          console.error('SMS notification failed:', smsError);
+          // SMS failure is not critical, continue
+        }
+
+      } catch (emailError) {
+        console.error('Email failed, trying SMS notification:', emailError);
+        
+        // If email fails, try SMS as fallback
+        try {
+          const { data: smsData, error: smsError } = await supabase.functions.invoke('send-sms-notification', {
+            body: {
+              name: formData.name,
+              email: formData.email,
+              message: formData.message
+            }
+          });
+
+          if (smsError) {
+            console.error('SMS fallback also failed:', smsError);
+          } else {
+            console.log("SMS notification sent as fallback:", smsData);
+          }
+        } catch (smsError) {
+          console.error('Both email and SMS failed:', smsError);
+          // Continue anyway as the message was saved to database
+        }
       }
 
       setIsSubmitted(true);
@@ -234,7 +265,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium py-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 glow-pulse flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium py-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 glow-pulse flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {isSubmitting ? (
                       <>
