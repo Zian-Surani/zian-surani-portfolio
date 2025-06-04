@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Award, ExternalLink, Calendar } from 'lucide-react';
 
@@ -50,7 +49,7 @@ const Certifications = () => {
       logo: "🧠",
       category: "AI & ML",
       description: "Comprehensive machine learning algorithms and applications",
-      link: "https://www.linkedin.com/in/zian-surani/"
+      link: "https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
     },
     {
       name: "Deep Learning Specialization",
@@ -59,7 +58,7 @@ const Certifications = () => {
       logo: "🤖",
       category: "AI & ML",
       description: "Neural networks, CNNs, RNNs, and deep learning frameworks",
-      link: "https://www.linkedin.com/in/zian-surani/"
+      link: "https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
     },
     {
       name: "TensorFlow Developer Certificate",
@@ -86,7 +85,7 @@ const Certifications = () => {
       logo: "⚛️",
       category: "Web Development",
       description: "Building modern web applications with React",
-      link: "https://www.linkedin.com/in/zian-surani/"
+      link: "https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
     },
     {
       name: "Cybersecurity Fundamentals",
@@ -104,7 +103,7 @@ const Certifications = () => {
       logo: "📊",
       category: "Computer Science",
       description: "Advanced algorithms and data structure optimization",
-      link: "https://www.linkedin.com/in/zian-surani/"
+      link: "https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
     },
     {
       name: "DevOps Foundation",
@@ -113,7 +112,7 @@ const Certifications = () => {
       logo: "🔧",
       category: "DevOps",
       description: "CI/CD pipelines and containerization technologies",
-      link: "https://www.linkedin.com/in/zian-surani/"
+      link: "https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
     },
     {
       name: "Blockchain Fundamentals",
@@ -122,7 +121,7 @@ const Certifications = () => {
       logo: "⛓️",
       category: "Blockchain",
       description: "Distributed systems and cryptocurrency technologies",
-      link: "https://www.linkedin.com/in/zian-surani/"
+      link: "https://linkedin.com/in/zian-rajeshkumar-surani-125215195"
     }
   ];
 

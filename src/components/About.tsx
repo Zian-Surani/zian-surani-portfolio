@@ -69,34 +69,34 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 px-6">
+    <section id="about" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
-        <div className={`text-center mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
+        <div className={`text-center mb-12 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
             The Neural Core
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             At the intersection of artificial intelligence and human ingenuity, I build systems that learn, adapt, and transform industries.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
           <div className={`${isVisible ? 'slide-in-left animate' : 'slide-in-left'}`}>
-            <div className="glass p-8 rounded-2xl">
-              <h3 className="font-display text-2xl font-bold mb-6 text-white">About Me</h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
+            <div className="glass p-6 md:p-8 rounded-2xl border border-white/20">
+              <h3 className="font-display text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">About Me</h3>
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                 I'm a passionate AI researcher and entrepreneur with deep expertise in machine learning, 
                 computer vision, and automation systems. My work spans from academic research to 
                 real-world applications, always with a focus on creating meaningful impact.
               </p>
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                 As President of the Entrepreneurship Development Cell at SRM IST, I lead teams in developing 
                 innovative solutions that bridge the gap between cutting-edge research and practical applications. 
                 My approach combines rigorous scientific methodology with entrepreneurial thinking.
               </p>
               <div className="flex flex-wrap gap-2">
                 {['AI Researcher', 'EDC President', 'Gold Medalist', 'Tech Innovator'].map((tag, index) => (
-                  <span key={index} className="glass px-3 py-1 rounded-full text-sm text-blue-400">
+                  <span key={index} className="glass px-3 py-1 rounded-full text-xs md:text-sm text-blue-400 border border-blue-400/30">
                     {tag}
                   </span>
                 ))}
@@ -105,39 +105,39 @@ const About = () => {
           </div>
 
           <div className={`${isVisible ? 'slide-in-right animate' : 'slide-in-right'}`}>
-            <div className="glass p-8 rounded-2xl">
-              <h3 className="font-display text-2xl font-bold mb-8 text-center text-white">Core Expertise</h3>
-              <div className="space-y-6">
+            <div className="glass p-6 md:p-8 rounded-2xl border border-white/20">
+              <h3 className="font-display text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center text-white">Core Expertise</h3>
+              <div className="space-y-4 md:space-y-6">
                 {expertiseAreas.map((area, index) => (
                   <div
                     key={area.name}
-                    className={`relative p-6 rounded-xl bg-gradient-to-r ${area.color} bg-opacity-10 border border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer group backdrop-blur-sm`}
+                    className={`relative p-4 md:p-6 rounded-xl bg-gradient-to-r ${area.color} bg-opacity-10 border border-white/30 hover:border-white/50 transition-all duration-300 cursor-pointer group backdrop-blur-sm`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center">
-                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${area.color} flex items-center justify-center mr-4 shadow-lg`}>
-                          <area.icon className="w-6 h-6 text-white" />
+                    <div className="flex items-start justify-between mb-3 md:mb-4">
+                      <div className="flex items-center flex-1">
+                        <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-r ${area.color} flex items-center justify-center mr-3 md:mr-4 shadow-lg flex-shrink-0`}>
+                          <area.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                         </div>
-                        <div>
-                          <h4 className="text-white font-bold text-lg">{area.name}</h4>
-                          <p className="text-gray-300 text-sm leading-relaxed mt-1">
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-white font-bold text-base md:text-lg">{area.name}</h4>
+                          <p className="text-gray-300 text-xs md:text-sm leading-relaxed mt-1">
                             {area.description}
                           </p>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-white mb-1">{area.level}%</div>
+                      <div className="text-right ml-2 flex-shrink-0">
+                        <div className="text-lg md:text-2xl font-bold text-white mb-1">{area.level}%</div>
                         <div className="text-xs text-gray-400">Proficiency</div>
                       </div>
                     </div>
                     
-                    <div className="w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
+                    <div className="w-full bg-gray-700/50 rounded-full h-2 md:h-3 overflow-hidden">
                       <div 
                         className={`h-full rounded-full bg-gradient-to-r ${area.color} transition-all duration-1000 ${isVisible ? 'shadow-lg' : ''}`}
                         style={{ 
                           width: isVisible ? `${area.level}%` : '0%',
-                          boxShadow: `0 0 20px rgba(${area.color.includes('blue') ? '59, 130, 246' : area.color.includes('purple') ? '147, 51, 234' : area.color.includes('cyan') ? '6, 182, 212' : area.color.includes('green') ? '34, 197, 94' : area.color.includes('orange') ? '251, 146, 60' : '236, 72, 153'}, 0.5)`
+                          boxShadow: isVisible ? `0 0 20px rgba(${area.color.includes('blue') ? '59, 130, 246' : area.color.includes('purple') ? '147, 51, 234' : area.color.includes('cyan') ? '6, 182, 212' : area.color.includes('green') ? '34, 197, 94' : area.color.includes('orange') ? '251, 146, 60' : '236, 72, 153'}, 0.5)` : 'none'
                         }}
                       />
                     </div>
