@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# 🌌 Stellar Forge – Zian Surani's Interactive Portfolio
 
-## Project info
+Welcome to **Stellar Forge**, a creative and technically dynamic portfolio by [Zian Rajeshkumar Surani](https://www.linkedin.com/in/zian-surani/), built with a focus on interactivity, smooth animations, and modern design principles. It showcases Zian’s projects, research interests, startup experience, and deep technical background in AI/ML and system design.
 
-**URL**: https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- ⚙️ **Built with ReactJS**
+- 🎨 Fully animated modern UI with custom transitions
+- 🖱️ Mouse-trail effect for immersive interaction
+- 🌑 Elegant **dark theme**
+- 📱 Responsive across all devices
+- 🧠 Sections on Research, Startups, Skills, Resume, and Contact
+- 🧩 Easily extendable and customizable
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d) and start prompting.
+## 📂 Folder Structure
 
-Changes made via Lovable will be committed automatically to this repo.
+zian-surani-stellar-forge/
+│
+├── public/ # Static assets
+├── src/ # Source code
+│ ├── assets/ # Images, icons
+│ ├── components/ # Reusable React components
+│ ├── pages/ # Page-level components
+│ ├── App.jsx # App entry point
+│ └── index.js # ReactDOM render
+├── package.json # Project metadata and dependencies
+└── README.md # This file
 
-**Use your preferred IDE**
+yaml
+Copy
+Edit
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 💻 Getting Started
 
-Follow these steps:
+### 🛠 Prerequisites
+- Node.js and npm installed:  
+  [https://nodejs.org](https://nodejs.org)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 📦 Install Dependencies
+```bash
+npm install
+▶️ Run Locally
+bash
+Copy
+Edit
+npm start
+App will open at http://localhost:3000
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+🙋‍♂️ About Me
+I’m Zian Rajeshkumar Surani, a Computer Science undergrad focused on:
 
-**Edit a file directly in GitHub**
+🧠 AI/ML, Computer Vision, Deep Learning
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🚗 Autonomous Systems & IoT
 
-**Use GitHub Codespaces**
+📊 Data Science & Decision Intelligence
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+💼 Entrepreneurship, Product Design & UX
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Portfolio made to reflect both creative depth and technical edge.
