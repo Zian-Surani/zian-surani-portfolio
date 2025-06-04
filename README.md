@@ -1,68 +1,89 @@
-# 🌌 Stellar Forge – Zian Surani's Interactive Portfolio
+# 🌌 Stellar Forge – Portfolio of Zian Rajeshkumar Surani
 
-Welcome to **Stellar Forge**, a creative and technically dynamic portfolio by [Zian Rajeshkumar Surani](https://www.linkedin.com/in/zian-surani/), built with a focus on interactivity, smooth animations, and modern design principles. It showcases Zian’s projects, research interests, startup experience, and deep technical background in AI/ML and system design.
+A modern, animation-rich personal portfolio built with **React.js**. This project showcases the creative, technical, and entrepreneurial journey of **Zian Rajeshkumar Surani**, featuring immersive visuals, smooth transitions, and responsive UI. Designed for professionals, recruiters, and researchers to explore a compelling digital identity.
 
 ---
 
-## 🚀 Features
+## ✨ Highlights
 
-- ⚙️ **Built with ReactJS**
-- 🎨 Fully animated modern UI with custom transitions
-- 🖱️ Mouse-trail effect for immersive interaction
-- 🌑 Elegant **dark theme**
-- 📱 Responsive across all devices
-- 🧠 Sections on Research, Startups, Skills, Resume, and Contact
-- 🧩 Easily extendable and customizable
+- ⚛️ Built with **React.js** and **JavaScript ES6+**
+- 🎨 Rich UI/UX with **CSS animations** and **interactive mouse trail**
+- 🌙 **Dark-themed aesthetic** with smooth transitions
+- 📱 Fully **responsive design** optimized for all screen sizes
+- 🧠 Includes **Research**, **Startups**, **Projects**, **Skills**, and **Resume**
+- 🔧 Modular architecture for easy scalability and customization
+
+---
+
+## 📸 Live Preview
+
+🚀 **Hosted Demo**: _Coming Soon_  
+🖼️ **Preview Image**: _Add a screenshot here_  
+<!-- ![Portfolio Preview](preview.png) -->
+
+---
+
+## 🧩 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| [React](https://reactjs.org/) | Frontend framework |
+| [Vite](https://vitejs.dev/) *(or CRA)* | Development and bundling |
+| [HTML5 & CSS3](https://developer.mozilla.org/) | Layout and styling |
+| [Framer Motion / GSAP](https://www.framer.com/motion/) | Animations |
+| [JavaScript ES6+](https://developer.mozilla.org/) | Interactivity |
+| [Node.js & npm](https://nodejs.org/) | Package management |
+| [Git & GitHub](https://github.com/) | Version control & hosting |
 
 ---
 
 ## 📂 Folder Structure
-
 zian-surani-stellar-forge/
 │
-├── public/ # Static assets
-├── src/ # Source code
-│ ├── assets/ # Images, icons
-│ ├── components/ # Reusable React components
-│ ├── pages/ # Page-level components
-│ ├── App.jsx # App entry point
-│ └── index.js # ReactDOM render
-├── package.json # Project metadata and dependencies
-└── README.md # This file
-
-yaml
-Copy
-Edit
+├── public/ # Static assets and favicon
+├── src/
+│ ├── assets/ # Images and icons
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # Page-level components (Home, About, etc.)
+│ ├── styles/ # Global and modular stylesheets
+│ ├── App.jsx # Root component
+│ └── main.jsx # Entry point
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.js (if applicable)
 
 ---
 
-## 💻 Getting Started
+## 🚀 Getting Started
 
-### 🛠 Prerequisites
-- Node.js and npm installed:  
-  [https://nodejs.org](https://nodejs.org)
+### 📋 Prerequisites
 
-### 📦 Install Dependencies
-```bash
-npm install
-▶️ Run Locally
-bash
-Copy
-Edit
-npm start
-App will open at http://localhost:3000
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [npm](https://www.npmjs.com/)
 
+### 🛠️ Installation
 
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/Zian-Surani/zian-surani-stellar-forge.git
+   cd zian-surani-stellar-forge
 
-🙋‍♂️ About Me
-I’m Zian Rajeshkumar Surani, a Computer Science undergrad focused on:
+2. Install Dependencies
+   '''bash
+   npm install
+3. Develop the server
 
-🧠 AI/ML, Computer Vision, Deep Learning
+📌 Future Enhancements (Planned)
+🌐 Deploy to GitHub Pages or Vercel
 
-🚗 Autonomous Systems & IoT
+🌈 Add Lottie animations or WebGL background
 
-📊 Data Science & Decision Intelligence
+🔍 SEO optimization and OpenGraph tags
 
-💼 Entrepreneurship, Product Design & UX
+🧩 Add Blog and Dynamic Project Fetching via APIs
 
-Portfolio made to reflect both creative depth and technical edge.
+“Build with creativity. Present with clarity. Grow with vision.”
+— Zian Surani
+   
