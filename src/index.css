@@ -183,31 +183,6 @@
     cursor: auto;
   }
 
-  /* Better contrast and visibility for mobile */
-  .glass {
-    @apply bg-white/20 backdrop-blur-md border border-white/30;
-  }
-
-  /* Improve text visibility on mobile */
-  .text-gray-400 {
-    @apply text-gray-200;
-  }
-
-  .text-gray-500 {
-    @apply text-gray-300;
-  }
-
-  .text-gray-300 {
-    @apply text-gray-100;
-  }
-
-  /* Better touch targets */
-  button, .cursor-pointer {
-    min-height: 44px;
-    min-width: 44px;
-    touch-action: manipulation;
-  }
-
   /* Ensure content doesn't go under mobile navigation */
   main {
     margin-top: 80px;
@@ -216,23 +191,6 @@
   /* Better spacing for mobile sections */
   section {
     scroll-margin-top: 100px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Ensure experience section is visible on mobile */
-  #experience {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 10 !important;
-    min-height: auto !important;
-  }
-
-  /* Improve modal visibility on mobile */
-  .fixed.inset-0 {
-    z-index: 100 !important;
   }
 }
 
@@ -251,21 +209,9 @@
     min-height: 44px;
     min-width: 44px;
   }
-
-  /* Remove hover effects on touch devices */
-  .hover\:bg-white\/15:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
 }
 
 /* Improved z-index management */
 .z-30 { z-index: 30; }
 .z-40 { z-index: 40; }
 .z-50 { z-index: 50; }
-.z-\[100\] { z-index: 100; }
-
-/* Force visibility for experience section */
-#experience {
-  display: block !important;
-  visibility: visible !important;
-}

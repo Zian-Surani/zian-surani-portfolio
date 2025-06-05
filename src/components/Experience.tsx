@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import { Calendar, MapPin, ExternalLink, Briefcase, GraduationCap } from 'lucide-react';
 
@@ -122,7 +123,7 @@ const Experience = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -142,13 +143,13 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" ref={sectionRef} className="relative z-10 py-16 md:py-20 px-4 md:px-6 min-h-screen">
+    <section id="experience" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-12 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
             Professional Journey
           </h2>
-          <p className="text-lg md:text-xl text-gray-100 md:text-gray-300 max-w-3xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             From academic excellence to industry experience, my journey spans diverse domains in AI, cybersecurity, and entrepreneurship.
           </p>
         </div>
@@ -159,7 +160,7 @@ const Experience = () => {
             return (
               <div
                 key={index}
-                className={`bg-white/20 md:bg-white/10 backdrop-blur-md border border-white/30 md:border-white/20 rounded-xl p-6 md:p-8 hover:bg-white/25 md:hover:bg-white/15 transition-all duration-500 cursor-pointer shadow-lg ${
+                className={`glass rounded-xl p-6 md:p-8 hover:glow transition-all duration-500 cursor-pointer ${
                   isVisible ? 'stagger-in animate' : 'stagger-in'
                 }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
@@ -170,12 +171,12 @@ const Experience = () => {
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <div className="min-w-0 flex-1">
+                    <div className="min-w-0">
                       <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1">
                         {exp.title}
                       </h3>
-                      <p className="text-blue-200 md:text-blue-300 font-semibold text-lg mb-2">{exp.company}</p>
-                      <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-100 md:text-gray-300">
+                      <p className="text-blue-400 font-semibold text-lg mb-2">{exp.company}</p>
+                      <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-400">
                         <div className="flex items-center space-x-1">
                           <Calendar className="w-4 h-4" />
                           <span>{exp.duration}</span>
@@ -186,24 +187,24 @@ const Experience = () => {
                         </div>
                         {exp.cgpa && (
                           <div className="flex items-center space-x-1">
-                            <span className="text-green-200 md:text-green-300 font-semibold">CGPA: {exp.cgpa}</span>
+                            <span className="text-green-400 font-semibold">CGPA: {exp.cgpa}</span>
                           </div>
                         )}
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <span className="bg-blue-500/30 md:bg-blue-500/20 border border-blue-400/40 md:border-blue-400/30 px-3 py-1 rounded-full text-sm text-blue-200 md:text-blue-300">
+                    <span className="glass px-3 py-1 rounded-full text-sm text-blue-400">
                       {exp.type}
                     </span>
-                    <span className="text-blue-200 md:text-blue-300 font-medium flex items-center space-x-1 hover:text-blue-100 md:hover:text-blue-200 transition-colors">
+                    <span className="text-blue-400 font-medium flex items-center space-x-1 hover:text-blue-300 transition-colors">
                       <span>View Details</span>
                       <ExternalLink className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
                 
-                <p className="text-gray-100 md:text-gray-200 leading-relaxed text-sm md:text-base">
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                   {exp.description}
                 </p>
               </div>
@@ -213,27 +214,27 @@ const Experience = () => {
 
         {/* Experience Modal */}
         {selectedExperience !== null && (
-          <div className="fixed inset-0 bg-black/90 md:bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 md:p-6">
-            <div className="bg-gray-800/95 md:bg-gray-900/95 backdrop-blur-md border border-white/30 md:border-white/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl">
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6">
+            <div className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl">
               <div className="p-6 md:p-8">
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
                       {experiences[selectedExperience].title}
                     </h3>
-                    <p className="text-blue-200 md:text-blue-300 font-semibold text-lg">
+                    <p className="text-blue-400 font-semibold text-lg">
                       {experiences[selectedExperience].company}
                     </p>
                   </div>
                   <button 
                     onClick={() => setSelectedExperience(null)}
-                    className="text-gray-200 md:text-gray-300 hover:text-white text-3xl font-bold bg-gray-700/70 md:bg-gray-800/50 rounded-full w-10 h-10 flex items-center justify-center"
+                    className="text-gray-400 hover:text-white text-2xl"
                   >
                     ×
                   </button>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mb-6 text-gray-100 md:text-gray-300">
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mb-6 text-gray-400">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-5 h-5" />
                     <span>{experiences[selectedExperience].duration}</span>
@@ -242,11 +243,11 @@ const Experience = () => {
                     <MapPin className="w-5 h-5" />
                     <span>{experiences[selectedExperience].location}</span>
                   </div>
-                  <span className="bg-blue-500/30 md:bg-blue-500/20 border border-blue-400/40 md:border-blue-400/30 px-3 py-1 rounded-full text-sm text-blue-200 md:text-blue-300 w-fit">
+                  <span className="glass px-3 py-1 rounded-full text-sm text-blue-400 w-fit">
                     {experiences[selectedExperience].type}
                   </span>
                   {experiences[selectedExperience].cgpa && (
-                    <span className="text-green-200 md:text-green-300 font-semibold">
+                    <span className="text-green-400 font-semibold">
                       CGPA: {experiences[selectedExperience].cgpa}
                     </span>
                   )}
@@ -254,7 +255,7 @@ const Experience = () => {
                 
                 <div className="mb-8">
                   <h4 className="text-xl font-bold text-white mb-4">Overview</h4>
-                  <p className="text-gray-100 md:text-gray-200 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                     {experiences[selectedExperience].details}
                   </p>
                 </div>
@@ -265,7 +266,7 @@ const Experience = () => {
                     {experiences[selectedExperience].achievements.map((achievement, idx) => (
                       <li key={idx} className="flex items-start space-x-3">
                         <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-100 md:text-gray-200 text-sm md:text-base">{achievement}</span>
+                        <span className="text-gray-300 text-sm md:text-base">{achievement}</span>
                       </li>
                     ))}
                   </ul>
