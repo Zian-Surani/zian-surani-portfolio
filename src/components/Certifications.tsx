@@ -14,7 +14,7 @@ const Certifications = () => {
       logo: "🔶",
       category: "Cloud Computing",
       description: "Foundational understanding of AWS Cloud services and architecture",
-      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Google Cloud Digital Leader",
@@ -23,7 +23,7 @@ const Certifications = () => {
       logo: "🌐",
       category: "Cloud Computing",
       description: "Digital transformation with Google Cloud technologies",
-      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Google Developer Profile",
@@ -41,7 +41,7 @@ const Certifications = () => {
       logo: "☁️",
       category: "Cloud Computing",
       description: "Core Azure services, solutions, and management tools",
-      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Machine Learning Specialization",
@@ -68,7 +68,7 @@ const Certifications = () => {
       logo: "⚡",
       category: "AI & ML",
       description: "Building and training neural networks using TensorFlow",
-      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Python for Data Science",
@@ -77,7 +77,7 @@ const Certifications = () => {
       logo: "🐍",
       category: "Programming",
       description: "Data analysis and visualization using Python libraries",
-      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "React Developer Certification",
@@ -95,7 +95,7 @@ const Certifications = () => {
       logo: "🔐",
       category: "Security",
       description: "Network security principles and threat management",
-      link: "https://www.credly.com/users/zian-rajeshkumar-surani"
+      link: "https://www.linkedin.com/in/zian-surani/"
     },
     {
       name: "Data Structures & Algorithms",

@@ -48,7 +48,7 @@ const CustomCursor = () => {
       {trail.map((point, index) => (
         <div
           key={point.id}
-          className="fixed pointer-events-none z-[9999] rounded-full"
+          className="fixed pointer-events-none z-[10000] rounded-full"
           style={{
             left: point.x - 2,
             top: point.y - 2,
@@ -63,7 +63,7 @@ const CustomCursor = () => {
       
       {/* Main cursor */}
       <div
-        className={`fixed pointer-events-none z-[9999] rounded-full border-2 border-gray-400 transition-all duration-200 ${
+        className={`fixed pointer-events-none z-[10000] rounded-full border-2 border-gray-400 transition-all duration-200 ${
           isClicking ? 'scale-75' : 'scale-100'
         }`}
         style={{
@@ -79,7 +79,7 @@ const CustomCursor = () => {
       
       {/* Center dot */}
       <div
-        className="fixed pointer-events-none z-[9999] rounded-full bg-gray-400"
+        className="fixed pointer-events-none z-[10000] rounded-full bg-gray-400"
         style={{
           left: position.x - 2,
           top: position.y - 2,
