@@ -183,6 +183,31 @@
     cursor: auto;
   }
 
+  /* Better contrast and visibility for mobile */
+  .glass {
+    @apply bg-white/20 backdrop-blur-md border border-white/30;
+  }
+
+  /* Improve text visibility on mobile */
+  .text-gray-400 {
+    @apply text-gray-200;
+  }
+
+  .text-gray-500 {
+    @apply text-gray-300;
+  }
+
+  .text-gray-300 {
+    @apply text-gray-100;
+  }
+
+  /* Better touch targets */
+  button, .cursor-pointer {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
   /* Ensure content doesn't go under mobile navigation */
   main {
     margin-top: 80px;
@@ -205,35 +230,9 @@
     min-height: auto !important;
   }
 
-  /* Better text visibility on mobile */
-  .glass {
-    @apply bg-white/15 backdrop-blur-md border border-white/25;
-  }
-
   /* Improve modal visibility on mobile */
   .fixed.inset-0 {
     z-index: 100 !important;
-  }
-
-  /* Better touch targets */
-  button, .cursor-pointer {
-    min-height: 44px;
-    min-width: 44px;
-    touch-action: manipulation;
-  }
-
-  /* Improve text readability */
-  .text-gray-400 {
-    @apply text-gray-300;
-  }
-
-  .text-gray-500 {
-    @apply text-gray-400;
-  }
-
-  /* Better contrast for mobile */
-  .bg-gradient-to-br {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
   }
 }
 
