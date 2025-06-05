@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import { Rocket, Users, TrendingUp, ExternalLink, Building, Cpu, Leaf } from 'lucide-react';
 
@@ -81,10 +82,10 @@ const Startup = () => {
     <section id="startup" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-12 md:mb-16 ${isVisible ? 'stagger-in animate' : 'stagger-in'}`}>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-white px-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
             Venture Forge
           </h2>
-          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             Building the future through innovative ventures that bridge technology, sustainability, and human-centered design.
           </p>
         </div>
@@ -95,14 +96,10 @@ const Startup = () => {
             return (
               <div
                 key={index}
-                className={`glass rounded-xl p-6 md:p-8 hover:glow transition-all duration-500 cursor-pointer transform hover:scale-105 border-2 border-white/30 ${
+                className={`glass rounded-xl p-6 md:p-8 hover:glow transition-all duration-500 cursor-pointer transform hover:scale-105 ${
                   isVisible ? 'stagger-in animate' : 'stagger-in'
                 }`}
-                style={{ 
-                  animationDelay: `${index * 0.2}s`,
-                  background: 'rgba(0, 0, 0, 0.8)',
-                  backdropFilter: 'blur(20px)'
-                }}
+                style={{ animationDelay: `${index * 0.2}s` }}
                 onClick={() => setSelectedVenture(index)}
               >
                 <div className="flex items-center mb-4 md:mb-6">
@@ -110,8 +107,8 @@ const Startup = () => {
                     <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
                   <div>
-                    <span className={`glass px-3 py-1 rounded-full text-xs md:text-sm border border-green-400/30 ${
-                      venture.status === 'Active' ? 'text-green-300' : 'text-yellow-400'
+                    <span className={`glass px-3 py-1 rounded-full text-xs md:text-sm ${
+                      venture.status === 'Active' ? 'text-green-400' : 'text-yellow-400'
                     }`}>
                       {venture.status}
                     </span>
@@ -122,19 +119,19 @@ const Startup = () => {
                   {venture.name}
                 </h3>
                 
-                <p className="text-blue-300 font-semibold mb-2 text-sm md:text-base">{venture.role}</p>
-                <p className="text-white text-sm mb-4">{venture.period}</p>
+                <p className="text-blue-400 font-semibold mb-2 text-sm md:text-base">{venture.role}</p>
+                <p className="text-gray-400 text-sm mb-4">{venture.period}</p>
                 
-                <p className="text-white leading-relaxed mb-6 text-sm md:text-base">
+                <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
                   {venture.description}
                 </p>
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Rocket className="w-4 h-4 text-blue-400" />
-                    <span className="text-blue-300 text-sm font-medium">Venture Details</span>
+                    <span className="text-blue-400 text-sm font-medium">Venture Details</span>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-white hover:text-blue-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-400 transition-colors" />
                 </div>
               </div>
             );
@@ -143,53 +140,51 @@ const Startup = () => {
 
         {/* Venture Modal */}
         {selectedVenture !== null && (
-          <div className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 md:p-6"
-               style={{ background: 'rgba(0, 0, 0, 0.95)', backdropFilter: 'blur(15px)' }}>
-            <div className="modal-content max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border-2 border-white/30"
-                 style={{ background: 'rgba(0, 0, 0, 0.9)', backdropFilter: 'blur(25px)' }}>
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6">
+            <div className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl">
               <div className="p-6 md:p-8">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2 modal-text">
+                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
                       {ventures[selectedVenture].name}
                     </h3>
-                    <p className="text-blue-300 font-semibold text-lg modal-text">
+                    <p className="text-blue-400 font-semibold text-lg">
                       {ventures[selectedVenture].role}
                     </p>
-                    <p className="text-white modal-text">{ventures[selectedVenture].period}</p>
+                    <p className="text-gray-400">{ventures[selectedVenture].period}</p>
                   </div>
                   <button 
                     onClick={() => setSelectedVenture(null)}
-                    className="text-white hover:text-gray-300 text-2xl z-50"
+                    className="text-gray-400 hover:text-white text-2xl"
                   >
                     ×
                   </button>
                 </div>
                 
                 <div className="mb-8">
-                  <h4 className="text-xl font-bold text-white mb-4 modal-text">About the Venture</h4>
-                  <p className="text-white leading-relaxed text-sm md:text-base modal-text">
+                  <h4 className="text-xl font-bold text-white mb-4">About the Venture</h4>
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                     {ventures[selectedVenture].details}
                   </p>
                 </div>
                 
                 <div className="mb-8">
-                  <h4 className="text-xl font-bold text-white mb-4 modal-text">Key Impact & Achievements</h4>
+                  <h4 className="text-xl font-bold text-white mb-4">Key Impact & Achievements</h4>
                   <ul className="space-y-3">
                     {ventures[selectedVenture].impact.map((item, idx) => (
                       <li key={idx} className="flex items-start space-x-3">
                         <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-white text-sm md:text-base modal-text">{item}</span>
+                        <span className="text-gray-300 text-sm md:text-base">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 className="text-xl font-bold text-white mb-4 modal-text">Technologies & Expertise</h4>
+                  <h4 className="text-xl font-bold text-white mb-4">Technologies & Expertise</h4>
                   <div className="flex flex-wrap gap-2">
                     {ventures[selectedVenture].technologies.map((tech, idx) => (
-                      <span key={idx} className="glass px-3 py-1 rounded-full text-sm text-blue-300 border border-blue-300/30">
+                      <span key={idx} className="glass px-3 py-1 rounded-full text-sm text-blue-400">
                         {tech}
                       </span>
                     ))}

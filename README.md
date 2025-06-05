@@ -1,101 +1,73 @@
-# 🌌 Stellar Forge – Portfolio of Zian Rajeshkumar Surani
+# Welcome to your Lovable project
 
-A modern, animation-rich personal portfolio built with **React.js**. This project showcases the creative, technical, and entrepreneurial journey of **Zian Rajeshkumar Surani**, featuring immersive visuals, smooth transitions, and responsive UI. Designed for professionals, recruiters, and researchers to explore a compelling digital identity.
+## Project info
 
----
+**URL**: https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d
 
-## ✨ Highlights
+## How can I edit this code?
 
-- ⚛️ Built with **React.js** and **JavaScript ES6+**
-- 🎨 Rich UI/UX with **CSS animations** and **interactive mouse trail**
-- 🌙 **Dark-themed aesthetic** with smooth transitions
-- 📱 Fully **responsive design** optimized for all screen sizes
-- 🧠 Includes **Research**, **Startups**, **Projects**, **Skills**, and **Resume**
-- 🔧 Modular architecture for easy scalability and customization
+There are several ways of editing your application.
 
----
+**Use Lovable**
 
-## 📸 Live Preview
+Simply visit the [Lovable Project](https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d) and start prompting.
 
-🚀 **Hosted Demo**: _Coming Soon_  
-🖼️ **Preview Image**: _Add a screenshot here_  
-<!-- ![Portfolio Preview](preview.png) -->
+Changes made via Lovable will be committed automatically to this repo.
 
----
+**Use your preferred IDE**
 
-## 🧩 Tech Stack
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-| Technology | Purpose |
-|------------|---------|
-| [React](https://reactjs.org/) | Frontend framework |
-| [Vite](https://vitejs.dev/) *(or CRA)* | Development and bundling |
-| [HTML5 & CSS3](https://developer.mozilla.org/) | Layout and styling |
-| [Framer Motion / GSAP](https://www.framer.com/motion/) | Animations |
-| [JavaScript ES6+](https://developer.mozilla.org/) | Interactivity |
-| [Node.js & npm](https://nodejs.org/) | Package management |
-| [Git & GitHub](https://github.com/) | Version control & hosting |
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
----
+Follow these steps:
 
-## 📂 Folder Structure
-zian-surani-stellar-forge/
-│
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-├── public/ # Static assets and favicon
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-├── src/
+# Step 3: Install the necessary dependencies.
+npm i
 
-│ ├── assets/ # Images and icons
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
 
-│ ├── components/ # Reusable UI components
+**Edit a file directly in GitHub**
 
-│ ├── pages/ # Page-level components (Home, About, etc.)
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-│ ├── styles/ # Global and modular stylesheets
+**Use GitHub Codespaces**
 
-│ ├── App.jsx # Root component
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-│ └── main.jsx # Entry point
+## What technologies are used for this project?
 
-├── .gitignore
+This project is built with:
 
-├── package.json
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-├── README.md
+## How can I deploy this project?
 
-└── vite.config.js (if applicable)
+Simply open [Lovable](https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d) and click on Share -> Publish.
 
+## Can I connect a custom domain to my Lovable project?
 
----
+Yes, you can!
 
-## 🚀 Getting Started
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-### 📋 Prerequisites
-
-Make sure you have the following installed:
-- [Node.js](https://nodejs.org/) (v16 or later)
-- [npm](https://www.npmjs.com/)
-
-### 🛠️ Installation
-
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/Zian-Surani/zian-surani-stellar-forge.git
-   cd zian-surani-stellar-forge
-
-2. Install Dependencies
-
-3. Develop the server
-
-📌 Future Enhancements (Planned)
-🌐 Deploy to GitHub Pages or Vercel
-
-🌈 Add Lottie animations or WebGL background
-
-🔍 SEO optimization and OpenGraph tags
-
-🧩 Add Blog and Dynamic Project Fetching via APIs
-
-“Build with creativity. Present with clarity. Grow with vision.”
-— Zian Surani
-   
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
