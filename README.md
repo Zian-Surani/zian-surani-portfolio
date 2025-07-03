@@ -1,18 +1,38 @@
-# Welcome to your Lovable project
+# 🌐 Zian Surani – Developer Portfolio
 
-## Project info
+A clean, responsive, and modern personal portfolio website built to showcase projects, skills, experiences, and achievements in tech and entrepreneurship.
 
-**URL**: https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d
+## 🧾 Overview
 
-## How can I edit this code?
+This portfolio serves as a central hub for presenting who I am, what I build, and what I’m passionate about. Designed with simplicity and clarity in mind, it reflects my journey in Computer Science, AI/ML, and real-world innovation.
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- 🧑‍💻 **About Me Section** – A snapshot of my background, skills, and interests.
+- 📁 **Projects Showcase** – Highlights key projects with links and descriptions.
+- 📜 **Resume & Contact Info** – Easy access to downloadable resume and ways to connect.
+- 📱 **Responsive Design** – Fully optimized for mobile, tablet, and desktop.
+- ⚡ **Fast & Lightweight** – Built with performance and minimalism in mind.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d) and start prompting.
+## 🛠 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend:** HTML5, CSS3, JavaScript  
+- **Framework:** React.js  
+- **Styling:** Tailwind CSS / Custom CSS  
+- **Deployment:** Vercel
+
+## 🔗 Live Demo
+
+Check out the live version here:  
+👉 [https://zian-surani-portfolio.vercel.app/](https://zian-surani-portfolio.vercel.app/)
+
+## 🚀 Getting Started Locally
+
+```bash
+git clone https://github.com/Zian-Surani/zian-surani-portfolio.git
+cd zian-surani-portfolio
+npm install
+npm run dev
 
 **Use your preferred IDE**
 
@@ -60,14 +80,4 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/bf334e38-0887-49b5-acab-dc8f1119140d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
